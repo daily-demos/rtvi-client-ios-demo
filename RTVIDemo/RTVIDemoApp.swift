@@ -112,6 +112,7 @@ extension CallContainerModel:VoiceClientDelegate, LLMHelperDelegate {
 
     func onError(message: String) {
         self.handleEvent(eventName: "onError", eventValue: message)
+        self.showError(message: message)
     }
 
 }
