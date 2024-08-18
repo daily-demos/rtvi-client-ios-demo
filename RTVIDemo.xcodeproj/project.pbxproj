@@ -18,7 +18,7 @@
 		90031FD52C61720200408370 /* RTVIClientIOSDaily in Frameworks */ = {isa = PBXBuildFile; productRef = 90031FD42C61720200408370 /* RTVIClientIOSDaily */; };
 		90031FDA2C66544000408370 /* RTVISessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90031FD92C66544000408370 /* RTVISessionView.swift */; };
 		90031FDC2C6D5DD700408370 /* ToastModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90031FDB2C6D5DD700408370 /* ToastModifier.swift */; };
-		90ABB9802C6FEFAA000D9CC7 /* RTVIClientIOSDaily in Frameworks */ = {isa = PBXBuildFile; productRef = 90ABB97F2C6FEFAA000D9CC7 /* RTVIClientIOSDaily */; };
+		90ABB98C2C72563A000D9CC7 /* RTVIClientIOSDaily in Frameworks */ = {isa = PBXBuildFile; productRef = 90ABB98B2C72563A000D9CC7 /* RTVIClientIOSDaily */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90ABB9802C6FEFAA000D9CC7 /* RTVIClientIOSDaily in Frameworks */,
+				90ABB98C2C72563A000D9CC7 /* RTVIClientIOSDaily in Frameworks */,
 				90031FD52C61720200408370 /* RTVIClientIOSDaily in Frameworks */,
 				90031FD22C6171F200408370 /* RTVIClientIOS in Frameworks */,
 			);
@@ -176,7 +176,7 @@
 			packageProductDependencies = (
 				90031FD12C6171F200408370 /* RTVIClientIOS */,
 				90031FD42C61720200408370 /* RTVIClientIOSDaily */,
-				90ABB97F2C6FEFAA000D9CC7 /* RTVIClientIOSDaily */,
+				90ABB98B2C72563A000D9CC7 /* RTVIClientIOSDaily */,
 			);
 			productName = RTVIDemo;
 			productReference = 90031FA32C616EE700408370 /* RTVIDemo.app */;
@@ -251,7 +251,7 @@
 			);
 			mainGroup = 90031F9A2C616EE700408370;
 			packageReferences = (
-				90ABB97E2C6FEFAA000D9CC7 /* XCRemoteSwiftPackageReference "rtvi-client-ios-daily" */,
+				90ABB98A2C72563A000D9CC7 /* XCRemoteSwiftPackageReference "rtvi-client-ios-daily" */,
 			);
 			productRefGroup = 90031FA42C616EE700408370 /* Products */;
 			projectDirPath = "";
@@ -632,12 +632,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		90ABB97E2C6FEFAA000D9CC7 /* XCRemoteSwiftPackageReference "rtvi-client-ios-daily" */ = {
+		90ABB98A2C72563A000D9CC7 /* XCRemoteSwiftPackageReference "rtvi-client-ios-daily" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/rtvi-ai/rtvi-client-ios-daily";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.0;
+				minimumVersion = 0.1.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -651,9 +651,9 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = RTVIClientIOSDaily;
 		};
-		90ABB97F2C6FEFAA000D9CC7 /* RTVIClientIOSDaily */ = {
+		90ABB98B2C72563A000D9CC7 /* RTVIClientIOSDaily */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 90ABB97E2C6FEFAA000D9CC7 /* XCRemoteSwiftPackageReference "rtvi-client-ios-daily" */;
+			package = 90ABB98A2C72563A000D9CC7 /* XCRemoteSwiftPackageReference "rtvi-client-ios-daily" */;
 			productName = RTVIClientIOSDaily;
 		};
 /* End XCSwiftPackageProductDependency section */

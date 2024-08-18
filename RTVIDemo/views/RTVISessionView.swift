@@ -4,10 +4,6 @@ struct RTVISessionView: View {
     
     @EnvironmentObject private var model: CallContainerModel
     
-    func disconnect() {
-        self.model.rtviClientIOS.disconnect(completion: nil)
-    }
-    
     var body: some View {
         VStack(spacing: 20) {
             Text("RTVI Session:")
@@ -15,7 +11,7 @@ struct RTVISessionView: View {
             Text(model.voiceClientStatus)
                 .font(.subheadline)
             Button("Disconnect") {
-                disconnect()
+                self.model.disconnect()
             }
             .padding()
             .background(Color.red)

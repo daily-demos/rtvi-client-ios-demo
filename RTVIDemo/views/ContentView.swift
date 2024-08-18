@@ -3,14 +3,6 @@ import SwiftUI
 struct ContentView: View {
 
     @EnvironmentObject private var model: CallContainerModel
-    
-    func connect() {
-        self.model.rtviClientIOS.start() { result in
-            if case .failure(let error) = result {
-                self.model.showError(message: error.localizedDescription)
-            }
-        }
-    }
 
     var body: some View {
         VStack(spacing: 20) {
@@ -25,7 +17,7 @@ struct ContentView: View {
                 .padding()
 
             Button("Connect") {
-                connect()
+                self.model.connect()
             }
             .padding()
             .background(Color.blue)
