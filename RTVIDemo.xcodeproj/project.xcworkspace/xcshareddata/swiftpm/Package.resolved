@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/rtvi-ai/rtvi-client-ios.git",
       "state" : {
-        "revision" : "52c54e127725422de8fc25af148d7ceb40d21a87",
-        "version" : "0.1.0"
+        "revision" : "4cecdb29d9a642cd407171d17fba64efadd95d50",
+        "version" : "0.1.1"
       }
     },
     {
@@ -24,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/rtvi-ai/rtvi-client-ios-daily",
       "state" : {
-        "revision" : "2fbada4cf4080e5bc689805a88b67bf642bbb59a",
-        "version" : "0.1.0"
+        "revision" : "6ca030d57970cf95afe63f4a2dacd0cbaec48d85",
+        "version" : "0.1.1"
       }
     }
   ],
