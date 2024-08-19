@@ -1,12 +1,19 @@
 import SwiftUI
 
-struct ContentView: View {
+struct PreJoinView: View {
 
+    //for dev only, to test using Preview
+    //@EnvironmentObject private var model: MockCallContainerModel
+    
+    //prod
     @EnvironmentObject private var model: CallContainerModel
 
     var body: some View {
         VStack(spacing: 20) {
-            Text("Connect to an RTVI server")
+            Image("dailyBot")
+                .resizable()
+                .frame(width: 64, height: 64)
+            Text("Connect to an Daily Bot")
                 .font(.headline)
 
             Text("Backend URL")
@@ -20,15 +27,17 @@ struct ContentView: View {
                 self.model.connect()
             }
             .padding()
-            .background(Color.blue)
+            .background(Color.black)
             .foregroundColor(.white)
             .cornerRadius(8)
         }
         .padding()
+        .frame(maxHeight: .infinity)
+        .background(Color.backgroundApp)
         .toast(message: model.toastMessage, isShowing: model.showToast)
     }
 }
 
-/*#Preview {
-    ContentView(model: <#CallContainerModel#>)
-}*/
+#Preview {
+    PreJoinView().environmentObject(MockCallContainerModel())
+}

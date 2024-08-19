@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		90031FA72C616EE700408370 /* RTVIDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90031FA62C616EE700408370 /* RTVIDemoApp.swift */; };
-		90031FA92C616EE700408370 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90031FA82C616EE700408370 /* ContentView.swift */; };
+		90031FA92C616EE700408370 /* PreJoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90031FA82C616EE700408370 /* PreJoinView.swift */; };
 		90031FAB2C616EE800408370 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90031FAA2C616EE800408370 /* Assets.xcassets */; };
 		90031FAE2C616EE800408370 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90031FAD2C616EE800408370 /* Preview Assets.xcassets */; };
 		90031FB82C616EE900408370 /* RTVIDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90031FB72C616EE900408370 /* RTVIDemoTests.swift */; };
@@ -16,9 +16,14 @@
 		90031FC42C616EE900408370 /* RTVIDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90031FC32C616EE900408370 /* RTVIDemoUITestsLaunchTests.swift */; };
 		90031FD22C6171F200408370 /* RTVIClientIOS in Frameworks */ = {isa = PBXBuildFile; productRef = 90031FD12C6171F200408370 /* RTVIClientIOS */; };
 		90031FD52C61720200408370 /* RTVIClientIOSDaily in Frameworks */ = {isa = PBXBuildFile; productRef = 90031FD42C61720200408370 /* RTVIClientIOSDaily */; };
-		90031FDA2C66544000408370 /* RTVISessionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90031FD92C66544000408370 /* RTVISessionView.swift */; };
 		90031FDC2C6D5DD700408370 /* ToastModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90031FDB2C6D5DD700408370 /* ToastModifier.swift */; };
 		90ABB98C2C72563A000D9CC7 /* RTVIClientIOSDaily in Frameworks */ = {isa = PBXBuildFile; productRef = 90ABB98B2C72563A000D9CC7 /* RTVIClientIOSDaily */; };
+		90ABB98E2C735ED6000D9CC7 /* MeetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90ABB98D2C735ED6000D9CC7 /* MeetingView.swift */; };
+		90ABB9902C736A8B000D9CC7 /* WaveformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90ABB98F2C736A8B000D9CC7 /* WaveformView.swift */; };
+		90ABB9932C73820D000D9CC7 /* MicrophoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90ABB9922C73820D000D9CC7 /* MicrophoneView.swift */; };
+		90ABB9982C738356000D9CC7 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90ABB9972C738356000D9CC7 /* CustomColors.swift */; };
+		90ABB99A2C73A6A9000D9CC7 /* MockCallContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90ABB9992C73A6A9000D9CC7 /* MockCallContainerModel.swift */; };
+		90ABB99D2C73C2D1000D9CC7 /* CallContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90ABB99C2C73C2D1000D9CC7 /* CallContainerModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +46,7 @@
 /* Begin PBXFileReference section */
 		90031FA32C616EE700408370 /* RTVIDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RTVIDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90031FA62C616EE700408370 /* RTVIDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTVIDemoApp.swift; sourceTree = "<group>"; };
-		90031FA82C616EE700408370 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		90031FA82C616EE700408370 /* PreJoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreJoinView.swift; sourceTree = "<group>"; };
 		90031FAA2C616EE800408370 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		90031FAD2C616EE800408370 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		90031FB32C616EE900408370 /* RTVIDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RTVIDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,8 +55,13 @@
 		90031FC12C616EE900408370 /* RTVIDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTVIDemoUITests.swift; sourceTree = "<group>"; };
 		90031FC32C616EE900408370 /* RTVIDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTVIDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		90031FD62C63FD6A00408370 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		90031FD92C66544000408370 /* RTVISessionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTVISessionView.swift; sourceTree = "<group>"; };
 		90031FDB2C6D5DD700408370 /* ToastModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastModifier.swift; sourceTree = "<group>"; };
+		90ABB98D2C735ED6000D9CC7 /* MeetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingView.swift; sourceTree = "<group>"; };
+		90ABB98F2C736A8B000D9CC7 /* WaveformView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveformView.swift; sourceTree = "<group>"; };
+		90ABB9922C73820D000D9CC7 /* MicrophoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicrophoneView.swift; sourceTree = "<group>"; };
+		90ABB9972C738356000D9CC7 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
+		90ABB9992C73A6A9000D9CC7 /* MockCallContainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCallContainerModel.swift; sourceTree = "<group>"; };
+		90ABB99C2C73C2D1000D9CC7 /* CallContainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallContainerModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +115,7 @@
 		90031FA52C616EE700408370 /* RTVIDemo */ = {
 			isa = PBXGroup;
 			children = (
-				90031FDE2C6D61F200408370 /* util */,
+				90ABB99B2C73C2C5000D9CC7 /* model */,
 				90031FDD2C6D61E000408370 /* views */,
 				90031FD62C63FD6A00408370 /* Info.plist */,
 				90031FA62C616EE700408370 /* RTVIDemoApp.swift */,
@@ -143,18 +153,39 @@
 		90031FDD2C6D61E000408370 /* views */ = {
 			isa = PBXGroup;
 			children = (
-				90031FA82C616EE700408370 /* ContentView.swift */,
-				90031FD92C66544000408370 /* RTVISessionView.swift */,
+				90ABB99E2C73C3A9000D9CC7 /* components */,
+				90ABB9962C738346000D9CC7 /* extensions */,
+				90031FA82C616EE700408370 /* PreJoinView.swift */,
+				90ABB98D2C735ED6000D9CC7 /* MeetingView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
 		};
-		90031FDE2C6D61F200408370 /* util */ = {
+		90ABB9962C738346000D9CC7 /* extensions */ = {
 			isa = PBXGroup;
 			children = (
+				90ABB9972C738356000D9CC7 /* CustomColors.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
+		90ABB99B2C73C2C5000D9CC7 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				90ABB9992C73A6A9000D9CC7 /* MockCallContainerModel.swift */,
+				90ABB99C2C73C2D1000D9CC7 /* CallContainerModel.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		90ABB99E2C73C3A9000D9CC7 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				90ABB98F2C736A8B000D9CC7 /* WaveformView.swift */,
+				90ABB9922C73820D000D9CC7 /* MicrophoneView.swift */,
 				90031FDB2C6D5DD700408370 /* ToastModifier.swift */,
 			);
-			path = util;
+			path = components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,10 +326,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90031FDA2C66544000408370 /* RTVISessionView.swift in Sources */,
-				90031FA92C616EE700408370 /* ContentView.swift in Sources */,
+				90ABB99D2C73C2D1000D9CC7 /* CallContainerModel.swift in Sources */,
+				90ABB99A2C73A6A9000D9CC7 /* MockCallContainerModel.swift in Sources */,
+				90031FA92C616EE700408370 /* PreJoinView.swift in Sources */,
+				90ABB9982C738356000D9CC7 /* CustomColors.swift in Sources */,
+				90ABB98E2C735ED6000D9CC7 /* MeetingView.swift in Sources */,
+				90ABB9932C73820D000D9CC7 /* MicrophoneView.swift in Sources */,
 				90031FDC2C6D5DD700408370 /* ToastModifier.swift in Sources */,
 				90031FA72C616EE700408370 /* RTVIDemoApp.swift in Sources */,
+				90ABB9902C736A8B000D9CC7 /* WaveformView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -637,7 +673,7 @@
 			repositoryURL = "https://github.com/rtvi-ai/rtvi-client-ios-daily";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.1;
+				minimumVersion = 0.1.2;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
