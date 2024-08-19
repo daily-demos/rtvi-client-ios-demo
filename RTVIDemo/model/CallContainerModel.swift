@@ -6,13 +6,18 @@ import RTVIClientIOS
 @MainActor
 class CallContainerModel: ObservableObject {
     
-    @Published var backendURL: String = ""
+    // Note: In a production environment, it is recommended to avoid calling Daily's API endpoint directly.
+    // Instead, you should route requests through your own server to handle authentication, validation,
+    // and any other necessary logic. Therefore, the baseUrl should be set to the URL of your own server.
+    @Published var backendURL: String = UserDefaults.standard.string(forKey: "backendURL") ?? "https://api.daily.co/v1/bots/start"
+    @Published var dailyApiKey: String = UserDefaults.standard.string(forKey: "dailyApiKey") ?? ""
+    
     @Published var voiceClientStatus: String = TransportState.idle.description
     @Published var isInCall: Bool = false
     @Published var isConnected: Bool = false
     @Published var timerCount = 0
     
-    @Published var isMicEnabled: Bool = false
+    @Published var isMicEnabled: Bool = true
     
     @Published var toastMessage: String? = nil
     @Published var showToast: Bool = false
@@ -25,12 +30,13 @@ class CallContainerModel: ObservableObject {
     private var meetingTimer: Timer?
     
     private var rtviClientIOS: VoiceClient?
-    private var options: VoiceClientOptions
     
     init() {
         // Changing the log level
         RTVIClientIOS.setLogLevel(.warn)
-        
+    }
+    
+    private func createOptions() -> VoiceClientOptions {
         let clientConfigOptions = [
             ServiceConfig(
                 service: "llm",
@@ -52,25 +58,23 @@ class CallContainerModel: ObservableObject {
                 ]
             )
         ]
-        // Note: In a production environment, it is recommended to avoid calling Daily's API endpoint directly.
-        // Instead, you should route requests through your own server to handle authentication, validation,
-        // and any other necessary logic. Therefore, the baseUrl should be set to the URL of your own server.
-        guard let dailyApiKey = ProcessInfo.processInfo.environment["DAILY_API_KEY"] else {
-            fatalError("DAILY_API_KEY not provided in environment variables. The app will terminate.")
-        }
-        let customHeaders = [["Authorization": "Bearer \(dailyApiKey)"]]
         
-        self.options = VoiceClientOptions.init(
+        let customHeaders = [["Authorization": "Bearer \(self.dailyApiKey)"]]
+        return VoiceClientOptions.init(
             services: ["llm": "together", "tts": "cartesia"],
             config: clientConfigOptions,
             customHeaders: customHeaders
         )
-        self.isMicEnabled = self.options.enableMic
     }
     
     func connect() {
+        if(self.dailyApiKey.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty){
+            self.showError(message: "Need to fill the Daily API Key. For more info visit: https://bots.daily.co")
+            return
+        }
+        
         let baseUrl = self.backendURL.trimmingCharacters(in: .whitespacesAndNewlines)
-        self.rtviClientIOS = DailyVoiceClient.init(baseUrl: baseUrl, options: options)
+        self.rtviClientIOS = DailyVoiceClient.init(baseUrl: baseUrl, options: createOptions())
         self.rtviClientIOS?.delegate = self
         self.rtviClientIOS?.start() { result in
             if case .failure(let error) = result {
@@ -78,6 +82,7 @@ class CallContainerModel: ObservableObject {
                 self.rtviClientIOS = nil
             }
         }
+        self.saveCredentials()
     }
     
     func disconnect() {
@@ -118,6 +123,12 @@ class CallContainerModel: ObservableObject {
         self.meetingTimer = nil
         self.timerCount = 0
     }
+    
+    func saveCredentials() {
+        UserDefaults.standard.set(self.backendURL, forKey: "backendURL")
+        UserDefaults.standard.set(self.dailyApiKey, forKey: "dailyApiKey")
+    }
+
 }
 
 extension CallContainerModel:VoiceClientDelegate, LLMHelperDelegate {

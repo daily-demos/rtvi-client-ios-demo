@@ -1,13 +1,13 @@
 import SwiftUI
 
 struct PreJoinView: View {
-
+    
     //for dev only, to test using Preview
     //@EnvironmentObject private var model: MockCallContainerModel
     
     //prod
     @EnvironmentObject private var model: CallContainerModel
-
+    
     var body: some View {
         VStack(spacing: 20) {
             Image("dailyBot")
@@ -15,14 +15,14 @@ struct PreJoinView: View {
                 .frame(width: 64, height: 64)
             Text("Connect to an Daily Bot")
                 .font(.headline)
-
-            Text("Backend URL")
-                .font(.subheadline)
-
-            TextField("Enter URL", text: $model.backendURL)
+            SecureField("Daily API Key", text: $model.dailyApiKey)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-
+                .frame(maxWidth: .infinity)
+                .padding([.horizontal])
+            TextField("Server URL", text: $model.backendURL)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .frame(maxWidth: .infinity)
+                .padding([.bottom, .horizontal])
             Button("Connect") {
                 self.model.connect()
             }

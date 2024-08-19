@@ -9,21 +9,12 @@ This demo is meant to showcase a basic voice to voice app that uses [Daily's bot
 
 ## Running locally
 
-1. Clone this repository locally, i.e.: `git clone git@github.com:rtvi-ai/rtvi-client-ios-demo.git`
+1. Clone this repository locally.
 2. Open the RTVIDemo.xcodeproj in Xcode.
 3. Tell Xcode to update its Package Dependencies by clicking File -> Packages -> Update to Latest Package Versions.
-4. Set DAILY_API_KEY Environment Variables in Xcode Scheme:
-   - Select the project from the Project Navigator.
-   - Click on the RTVIDemo target.
-   - Go to the "Product" menu, then select "Scheme", and choose "Edit Scheme...".
-   - In the Scheme editor, select the "Run" tab from the left sidebar.
-   - In the "Run" tab, open the "Arguments" section.
-   - Under the "Environment Variables" section, click the + button to add a new environment variable.
-   - Set the Name to DAILY_API_KEY and the Value to your actual API key.
-   - Click "Close" to save the changes.
-5. Build the project.
-6. Run the project on your device.
-7. Connect to the URL you are testing, and to see it work.
+4. Build the project.
+5. Run the project on your device.
+6. Connect to the URL you are testing, and to see it work.
 
 > **Note**: In a production environment, it is recommended to avoid calling Daily's API endpoint directly.  
 > Instead, you should route requests through your own server to handle authentication, validation,  
