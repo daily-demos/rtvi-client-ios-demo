@@ -6,46 +6,39 @@ struct MicrophoneView: View {
 
     var body: some View {
         GeometryReader { geometry in
-            VStack {
-                Spacer()
-                HStack {
-                    Spacer()
-                    ZStack {
-                        // Outer gray border
-                        Circle()
-                            .stroke(Color.gray, lineWidth: 1)
-                            .frame(width: geometry.size.width * 0.9, height: geometry.size.width * 0.8)
+            let width = geometry.size.width
+            let circleSize = width * 0.9
+            let innerCircleSize = width * 0.82
+            let audioCircleSize = CGFloat(audioLevel) * (width * 0.95)
 
-                        // Gray middle
-                        Circle()
-                            .fill(isMuted ? Color.disabledMic : Color.backgroundCircle)
-                            .frame(width: geometry.size.width * 0.82, height: geometry.size.width * 0.70)
+            ZStack {
+                Circle()
+                    .stroke(Color.gray, lineWidth: 1)
+                    .frame(width: circleSize)
 
-                        // Green circle expanding based on audio level
-                        if !isMuted {
-                            Circle()
-                                .fill(Color.micVolume)
-                                .opacity(0.5)
-                                .frame(width: CGFloat(audioLevel) * (geometry.size.width * 0.95),
-                                       height: CGFloat(audioLevel) * (geometry.size.height * 0.95))
-                                .animation(.easeInOut(duration: 0.2), value: audioLevel)
-                        }
+                Circle()
+                    .fill(isMuted ? Color.disabledMic : Color.backgroundCircle)
+                    .frame(width: innerCircleSize)
 
-                        // Microphone icon in the center
-                        Image(systemName: isMuted ? "mic.slash.fill" : "mic.fill")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: geometry.size.width * 0.2, height: geometry.size.width * 0.2)
-                            .foregroundColor(.white)
-                    }
-                    Spacer()
+                if !isMuted {
+                    Circle()
+                        .fill(Color.micVolume)
+                        .opacity(0.5)
+                        .frame(width: audioCircleSize)
+                        .animation(.easeInOut(duration: 0.2), value: audioLevel)
                 }
-                Spacer()
+
+                Image(systemName: isMuted ? "mic.slash.fill" : "mic.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: width * 0.2)
+                    .foregroundColor(.white)
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity) // Ensures the ZStack is centered
         }
     }
 }
 
 #Preview {
-    MicrophoneView(audioLevel: 0.5, isMuted: true)
+    MicrophoneView(audioLevel: 1, isMuted: false)
 }

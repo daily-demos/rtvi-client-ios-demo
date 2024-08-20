@@ -6,18 +6,12 @@ import RTVIClientIOS
 @MainActor
 class CallContainerModel: ObservableObject {
     
-    // Note: In a production environment, it is recommended to avoid calling Daily's API endpoint directly.
-    // Instead, you should route requests through your own server to handle authentication, validation,
-    // and any other necessary logic. Therefore, the baseUrl should be set to the URL of your own server.
-    @Published var backendURL: String = UserDefaults.standard.string(forKey: "backendURL") ?? "https://api.daily.co/v1/bots/start"
-    @Published var dailyApiKey: String = UserDefaults.standard.string(forKey: "dailyApiKey") ?? ""
-    
     @Published var voiceClientStatus: String = TransportState.idle.description
     @Published var isInCall: Bool = false
-    @Published var isConnected: Bool = false
+    @Published var isBotReady: Bool = false
     @Published var timerCount = 0
     
-    @Published var isMicEnabled: Bool = true
+    @Published var isMicEnabled: Bool = false
     
     @Published var toastMessage: String? = nil
     @Published var showToast: Bool = false
@@ -29,14 +23,14 @@ class CallContainerModel: ObservableObject {
     
     private var meetingTimer: Timer?
     
-    private var rtviClientIOS: VoiceClient?
+    var rtviClientIOS: VoiceClient?
     
     init() {
         // Changing the log level
         RTVIClientIOS.setLogLevel(.warn)
     }
     
-    private func createOptions() -> VoiceClientOptions {
+    private func createOptions(dailyApiKey:String, enableMic:Bool) -> VoiceClientOptions {
         let clientConfigOptions = [
             ServiceConfig(
                 service: "llm",
@@ -59,22 +53,30 @@ class CallContainerModel: ObservableObject {
             )
         ]
         
-        let customHeaders = [["Authorization": "Bearer \(self.dailyApiKey)"]]
+        let customHeaders = [["Authorization": "Bearer \(dailyApiKey)"]]
         return VoiceClientOptions.init(
+            enableMic: enableMic,
+            enableCam: false,
             services: ["llm": "together", "tts": "cartesia"],
             config: clientConfigOptions,
             customHeaders: customHeaders
         )
     }
     
-    func connect() {
-        if(self.dailyApiKey.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty){
+    func connect(backendURL: String, dailyApiKey:String) {
+        if(dailyApiKey.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty){
             self.showError(message: "Need to fill the Daily API Key. For more info visit: https://bots.daily.co")
             return
         }
         
-        let baseUrl = self.backendURL.trimmingCharacters(in: .whitespacesAndNewlines)
-        self.rtviClientIOS = DailyVoiceClient.init(baseUrl: baseUrl, options: createOptions())
+        let baseUrl = backendURL.trimmingCharacters(in: .whitespacesAndNewlines)
+        if(baseUrl.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty){
+            self.showError(message: "Need to fill the backendURL. For more info visit: https://bots.daily.co")
+            return
+        }
+        
+        let currentSettings = SettingsManager.getSettings()
+        self.rtviClientIOS = DailyVoiceClient.init(baseUrl: baseUrl, options: createOptions(dailyApiKey: dailyApiKey, enableMic: currentSettings.enableMic))
         self.rtviClientIOS?.delegate = self
         self.rtviClientIOS?.start() { result in
             if case .failure(let error) = result {
@@ -82,7 +84,11 @@ class CallContainerModel: ObservableObject {
                 self.rtviClientIOS = nil
             }
         }
-        self.saveCredentials()
+        // Selecting the mic based on the preferences
+        if let selectedMic = currentSettings.selectedMic {
+            self.rtviClientIOS?.updateMic(micId: MediaDeviceId(id:selectedMic), completion: nil)
+        }
+        self.saveCredentials(dailyApiKey: dailyApiKey, backendURL: baseUrl)
     }
     
     func disconnect() {
@@ -124,11 +130,14 @@ class CallContainerModel: ObservableObject {
         self.timerCount = 0
     }
     
-    func saveCredentials() {
-        UserDefaults.standard.set(self.backendURL, forKey: "backendURL")
-        UserDefaults.standard.set(self.dailyApiKey, forKey: "dailyApiKey")
+    func saveCredentials(dailyApiKey: String, backendURL: String) {
+        var currentSettings = SettingsManager.getSettings()
+        currentSettings.backendURL = backendURL
+        currentSettings.dailyApiKey = dailyApiKey
+        // Saving the settings
+        SettingsManager.updateSettings(settings: currentSettings)
     }
-
+    
 }
 
 extension CallContainerModel:VoiceClientDelegate, LLMHelperDelegate {
@@ -145,11 +154,11 @@ extension CallContainerModel:VoiceClientDelegate, LLMHelperDelegate {
         self.handleEvent(eventName: "onTransportStateChanged", eventValue: state)
         self.voiceClientStatus = state.description
         self.isInCall = ( state == .connecting || state == .connected || state == .ready || state == .handshaking )
-        self.isConnected = ( state == .ready )
     }
     
     func onBotReady(botReadyData: BotReadyData) {
         self.handleEvent(eventName: "onBotReady")
+        self.isBotReady = true
         self.startTimer()
     }
     
@@ -159,6 +168,7 @@ extension CallContainerModel:VoiceClientDelegate, LLMHelperDelegate {
     
     func onDisconnected() {
         self.stopTimer()
+        self.isBotReady = false
     }
     
     func onRemoteAudioLevel(level: Float, participant: Participant) {

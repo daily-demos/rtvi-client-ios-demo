@@ -2,11 +2,11 @@ import SwiftUI
 import RTVIClientIOS
 
 class MockCallContainerModel: CallContainerModel {
-    
+
     override init() {
     }
 
-    override func connect() {
+    override func connect(backendURL: String, dailyApiKey: String) {
         print("connect")
     }
 
@@ -23,7 +23,7 @@ class MockCallContainerModel: CallContainerModel {
             self.toastMessage = nil
         }
     }
-    
+
     func startAudioLevelSimulation() {
         // Simulate audio level changes
         Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in

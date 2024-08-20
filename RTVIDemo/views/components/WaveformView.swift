@@ -3,7 +3,7 @@ import SwiftUI
 struct WaveformView: View {
     
     var audioLevel: Float
-    var isConnected: Bool
+    var isBotReady: Bool
     var voiceClientStatus: String
     
     @State
@@ -24,10 +24,10 @@ struct WaveformView: View {
                         
                         // Gray middle
                         Circle()
-                            .fill(isConnected ? Color.backgroundCircle : Color.backgroundCircleNotConnected)
+                            .fill(isBotReady ? Color.backgroundCircle : Color.backgroundCircleNotConnected)
                             .frame(width: geometry.size.width * 0.82, height: geometry.size.width * 0.82)
                         
-                        if isConnected {
+                        if isBotReady {
                             if audioLevel > 0 {
                                 // Waveform bars inside the circle
                                 HStack(spacing: 10) {
@@ -89,5 +89,5 @@ struct WaveformView: View {
 }
 
 #Preview {
-    WaveformView(audioLevel: 0, isConnected: false, voiceClientStatus: "idle")
+    WaveformView(audioLevel: 0, isBotReady: false, voiceClientStatus: "idle")
 }

@@ -2,6 +2,8 @@ import SwiftUI
 
 struct MeetingView: View {
     
+    @State private var showingSettings = false
+    
     //for dev only, to test using Preview
     //@EnvironmentObject private var model: MockCallContainerModel
     
@@ -31,7 +33,7 @@ struct MeetingView: View {
             // Main Panel
             VStack {
                 VStack {
-                    WaveformView(audioLevel: model.remoteAudioLevel, isConnected: model.isConnected, voiceClientStatus: model.voiceClientStatus)
+                    WaveformView(audioLevel: model.remoteAudioLevel, isBotReady: model.isBotReady, voiceClientStatus: model.voiceClientStatus)
                 }
                 .frame(maxHeight: .infinity)
                 VStack {
@@ -42,16 +44,16 @@ struct MeetingView: View {
                             self.model.toggleMicInput()
                         }
                 }
-                .frame(height: 100)
+                .frame(height: 120)
             }
             .frame(maxHeight: .infinity)
             .padding()
             
             // Bottom Panel
             VStack {
-                // TODO: leaving it disabled for now, since we have not implemented it yet
-                /**
                 HStack {
+                    //TODO: leaving it disabled for now, need to implement it
+                    /**
                     Button(action: {
                     }) {
                         HStack {
@@ -65,8 +67,10 @@ struct MeetingView: View {
                     }
                     .border(Color.buttonsBorder, width: 1)
                     .cornerRadius(12)
+                     */
                     
                     Button(action: {
+                        self.showingSettings = true
                     }) {
                         HStack {
                             Image(systemName: "gearshape")
@@ -76,14 +80,15 @@ struct MeetingView: View {
                         }
                         .frame(maxWidth: .infinity)
                         .padding()
+                        .sheet(isPresented: $showingSettings) {
+                            SettingsView(showingSettings: $showingSettings).environmentObject(self.model)
+                        }
                     }
                     .border(Color.buttonsBorder, width: 1)
                     .cornerRadius(12)
                 }
                 .foregroundColor(.black)
                 .padding([.top, .horizontal])
-                .disabled(true)
-                 */
                 
                 Button(action: {
                     self.model.disconnect()
