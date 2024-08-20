@@ -78,7 +78,7 @@ struct MeetingView: View {
                         .frame(maxWidth: .infinity)
                         .padding()
                         .sheet(isPresented: $showingSettings) {
-                            SettingsView(showingSettings: $showingSettings, rtviClientIOS: self.model.rtviClientIOS)
+                            SettingsView(showingSettings: $showingSettings).environmentObject(self.model)
                         }
                     }
                     .border(Color.buttonsBorder, width: 1)

@@ -3,24 +3,22 @@ import RTVIClientIOS
 
 struct SettingsView: View {
     
-    @Binding var showingSettings: Bool
+    //for dev only, to test using Preview
+    //@EnvironmentObject private var model: MockCallContainerModel
     
-    private var rtviClientIOS: VoiceClient?
-    private let microphones: [MediaDeviceInfo]
+    //prod
+    @EnvironmentObject private var model: CallContainerModel
+    
+    @Binding var showingSettings: Bool
     
     @State private var selectedMic: MediaDeviceId? = nil
     @State private var isMicEnabled: Bool = true
     @State private var backendURL: String = ""
     @State private var dailyApiKey: String = ""
     
-    @MainActor
-    init(showingSettings: Binding<Bool>, rtviClientIOS: VoiceClient?) {
-        self._showingSettings = showingSettings
-        self.rtviClientIOS = rtviClientIOS
-        self.microphones = rtviClientIOS?.getAllMics() ?? []
-    }
     
     var body: some View {
+        let microphones = self.model.rtviClientIOS?.getAllMics() ?? []
         NavigationView {
             Form {
                 Section(header: Text("Credentials")) {
@@ -29,12 +27,12 @@ struct SettingsView: View {
                 Section(header: Text("Audio Settings")) {
                     List(microphones, id: \.self.id.id) { mic in
                         Button(action: {
-                            selectMic(mic.id)
+                            self.selectMic(mic.id)
                         }) {
                             HStack {
                                 Text(mic.name)
                                 Spacer()
-                                if mic.id == selectedMic {
+                                if mic.id == self.selectedMic {
                                     Image(systemName: "checkmark")
                                 }
                             }
@@ -53,20 +51,20 @@ struct SettingsView: View {
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Close") {
-                        saveSettings()
-                        showingSettings = false
+                        self.saveSettings()
+                        self.showingSettings = false
                     }
                 }
             }
             .onAppear {
-                loadSettings()
+                self.loadSettings()
             }
         }
     }
     
     private func selectMic(_ mic: MediaDeviceId) {
-        // TODO invoke callModel
-        selectedMic = mic
+        self.selectedMic = mic
+        self.model.rtviClientIOS?.updateMic(micId: mic, completion: nil)
     }
     
     private func saveSettings() {
@@ -93,5 +91,5 @@ struct SettingsView: View {
 }
 
 #Preview {
-    SettingsView(showingSettings: .constant(true), rtviClientIOS: nil)
+    SettingsView(showingSettings: .constant(true))
 }
