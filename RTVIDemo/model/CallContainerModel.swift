@@ -54,12 +54,18 @@ class CallContainerModel: ObservableObject {
         ]
         
         let customHeaders = [["Authorization": "Bearer \(dailyApiKey)"]]
+        let customBodyParams = Value.object([
+            "bot_profile": Value.string("voice_2024_08"),
+            "max_duration": Value.number(680)
+        ])
+        
         return VoiceClientOptions.init(
             enableMic: enableMic,
             enableCam: false,
             services: ["llm": "together", "tts": "cartesia"],
             config: clientConfigOptions,
-            customHeaders: customHeaders
+            customHeaders: customHeaders,
+            customBodyParams: customBodyParams
         )
     }
     
