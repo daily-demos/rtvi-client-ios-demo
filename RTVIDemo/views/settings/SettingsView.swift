@@ -70,7 +70,7 @@ struct SettingsView: View {
     private func saveSettings() {
         let newSettings = SettingsPreference(
             selectedMic: selectedMic?.id,
-            isMicEnabled: isMicEnabled,
+            enableMic: isMicEnabled,
             backendURL: backendURL,
             dailyApiKey: dailyApiKey
         )
@@ -84,12 +84,15 @@ struct SettingsView: View {
         } else {
             self.selectedMic = nil
         }
-        self.isMicEnabled = savedSettings.isMicEnabled
+        self.isMicEnabled = savedSettings.enableMic
         self.backendURL = savedSettings.backendURL
         self.dailyApiKey = savedSettings.dailyApiKey
     }
 }
 
 #Preview {
-    SettingsView(showingSettings: .constant(true))
+    let mockModel = MockCallContainerModel()
+    let result = SettingsView(showingSettings: .constant(true)).environmentObject(mockModel)
+    mockModel.startAudioLevelSimulation()
+    return result
 }

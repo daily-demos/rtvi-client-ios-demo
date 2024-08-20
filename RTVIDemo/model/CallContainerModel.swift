@@ -11,7 +11,7 @@ class CallContainerModel: ObservableObject {
     @Published var isBotReady: Bool = false
     @Published var timerCount = 0
     
-    @Published var isMicEnabled: Bool = true
+    @Published var isMicEnabled: Bool = false
     
     @Published var toastMessage: String? = nil
     @Published var showToast: Bool = false
@@ -30,7 +30,7 @@ class CallContainerModel: ObservableObject {
         RTVIClientIOS.setLogLevel(.warn)
     }
     
-    private func createOptions(dailyApiKey:String) -> VoiceClientOptions {
+    private func createOptions(dailyApiKey:String, enableMic:Bool) -> VoiceClientOptions {
         let clientConfigOptions = [
             ServiceConfig(
                 service: "llm",
@@ -55,6 +55,8 @@ class CallContainerModel: ObservableObject {
         
         let customHeaders = [["Authorization": "Bearer \(dailyApiKey)"]]
         return VoiceClientOptions.init(
+            enableMic: enableMic,
+            enableCam: false,
             services: ["llm": "together", "tts": "cartesia"],
             config: clientConfigOptions,
             customHeaders: customHeaders
@@ -73,7 +75,8 @@ class CallContainerModel: ObservableObject {
             return
         }
         
-        self.rtviClientIOS = DailyVoiceClient.init(baseUrl: baseUrl, options: createOptions(dailyApiKey: dailyApiKey))
+        let currentSettings = SettingsManager.getSettings()
+        self.rtviClientIOS = DailyVoiceClient.init(baseUrl: baseUrl, options: createOptions(dailyApiKey: dailyApiKey, enableMic: currentSettings.enableMic))
         self.rtviClientIOS?.delegate = self
         self.rtviClientIOS?.start() { result in
             if case .failure(let error) = result {
@@ -130,7 +133,7 @@ class CallContainerModel: ObservableObject {
         // Saving the settings
         SettingsManager.updateSettings(settings: currentSettings)
     }
-
+    
 }
 
 extension CallContainerModel:VoiceClientDelegate, LLMHelperDelegate {
