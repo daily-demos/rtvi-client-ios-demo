@@ -24,6 +24,7 @@
 		90ABB9982C738356000D9CC7 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90ABB9972C738356000D9CC7 /* CustomColors.swift */; };
 		90ABB99A2C73A6A9000D9CC7 /* MockCallContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90ABB9992C73A6A9000D9CC7 /* MockCallContainerModel.swift */; };
 		90ABB99D2C73C2D1000D9CC7 /* CallContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90ABB99C2C73C2D1000D9CC7 /* CallContainerModel.swift */; };
+		90ABB9A32C74E1CE000D9CC7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90ABB9A22C74E1CE000D9CC7 /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		90ABB9972C738356000D9CC7 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		90ABB9992C73A6A9000D9CC7 /* MockCallContainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCallContainerModel.swift; sourceTree = "<group>"; };
 		90ABB99C2C73C2D1000D9CC7 /* CallContainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallContainerModel.swift; sourceTree = "<group>"; };
+		90ABB9A22C74E1CE000D9CC7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +186,7 @@
 				90ABB98F2C736A8B000D9CC7 /* WaveformView.swift */,
 				90ABB9922C73820D000D9CC7 /* MicrophoneView.swift */,
 				90031FDB2C6D5DD700408370 /* ToastModifier.swift */,
+				90ABB9A22C74E1CE000D9CC7 /* SettingsView.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				90031FA92C616EE700408370 /* PreJoinView.swift in Sources */,
 				90ABB9982C738356000D9CC7 /* CustomColors.swift in Sources */,
 				90ABB98E2C735ED6000D9CC7 /* MeetingView.swift in Sources */,
+				90ABB9A32C74E1CE000D9CC7 /* SettingsView.swift in Sources */,
 				90ABB9932C73820D000D9CC7 /* MicrophoneView.swift in Sources */,
 				90031FDC2C6D5DD700408370 /* ToastModifier.swift in Sources */,
 				90031FA72C616EE700408370 /* RTVIDemoApp.swift in Sources */,

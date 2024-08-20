@@ -1,13 +1,15 @@
 import SwiftUI
 
 struct MeetingView: View {
-    
+
+    @State private var showingSettings = false
+
     //for dev only, to test using Preview
     //@EnvironmentObject private var model: MockCallContainerModel
-    
+
     //prod
     @EnvironmentObject private var model: CallContainerModel
-    
+
     var body: some View {
         VStack {
             // Header Toolbar
@@ -27,7 +29,7 @@ struct MeetingView: View {
                     .cornerRadius(12)
             }
             .padding()
-            
+
             // Main Panel
             VStack {
                 VStack {
@@ -46,11 +48,9 @@ struct MeetingView: View {
             }
             .frame(maxHeight: .infinity)
             .padding()
-            
+
             // Bottom Panel
             VStack {
-                // TODO: leaving it disabled for now, since we have not implemented it yet
-                /**
                 HStack {
                     Button(action: {
                     }) {
@@ -65,8 +65,9 @@ struct MeetingView: View {
                     }
                     .border(Color.buttonsBorder, width: 1)
                     .cornerRadius(12)
-                    
+
                     Button(action: {
+                        self.showingSettings = true
                     }) {
                         HStack {
                             Image(systemName: "gearshape")
@@ -76,15 +77,16 @@ struct MeetingView: View {
                         }
                         .frame(maxWidth: .infinity)
                         .padding()
+                        .sheet(isPresented: $showingSettings) {
+                            SettingsView(showingSettings: $showingSettings)
+                        }
                     }
                     .border(Color.buttonsBorder, width: 1)
                     .cornerRadius(12)
                 }
                 .foregroundColor(.black)
                 .padding([.top, .horizontal])
-                .disabled(true)
-                 */
-                
+
                 Button(action: {
                     self.model.disconnect()
                 }) {
@@ -106,7 +108,7 @@ struct MeetingView: View {
         .background(Color.backgroundApp)
         .toast(message: model.toastMessage, isShowing: model.showToast)
     }
-    
+
     func timerString(from count: Int) -> String {
         let minutes = count / 60
         let seconds = count % 60
