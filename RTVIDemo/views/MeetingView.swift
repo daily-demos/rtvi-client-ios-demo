@@ -52,6 +52,8 @@ struct MeetingView: View {
             // Bottom Panel
             VStack {
                 HStack {
+                    //TODO: leaving it disabled for now, need to implement it
+                    /**
                     Button(action: {
                     }) {
                         HStack {
@@ -65,6 +67,7 @@ struct MeetingView: View {
                     }
                     .border(Color.buttonsBorder, width: 1)
                     .cornerRadius(12)
+                     */
                     
                     Button(action: {
                         self.showingSettings = true

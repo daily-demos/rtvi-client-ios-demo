@@ -84,6 +84,10 @@ class CallContainerModel: ObservableObject {
                 self.rtviClientIOS = nil
             }
         }
+        // Selecting the mic based on the preferences
+        if let selectedMic = currentSettings.selectedMic {
+            self.rtviClientIOS?.updateMic(micId: MediaDeviceId(id:selectedMic), completion: nil)
+        }
         self.saveCredentials(dailyApiKey: dailyApiKey, backendURL: baseUrl)
     }
     
