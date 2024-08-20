@@ -1,19 +1,19 @@
 import SwiftUI
 
 struct PreJoinView: View {
-    
+
     //for dev only, to test using Preview
     //@EnvironmentObject private var model: MockCallContainerModel
-    
+
     //prod
     @EnvironmentObject private var model: CallContainerModel
-    
+
     var body: some View {
         VStack(spacing: 20) {
             Image("dailyBot")
                 .resizable()
                 .frame(width: 64, height: 64)
-            Text("Connect to an Daily Bot")
+            Text("Connect to a Daily Bot.")
                 .font(.headline)
             SecureField("Daily API Key", text: $model.dailyApiKey)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
