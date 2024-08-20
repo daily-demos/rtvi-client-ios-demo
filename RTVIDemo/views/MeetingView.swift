@@ -42,7 +42,7 @@ struct MeetingView: View {
                             self.model.toggleMicInput()
                         }
                 }
-                .frame(height: 100)
+                .frame(height: 120)
             }
             .frame(maxHeight: .infinity)
             .padding()
