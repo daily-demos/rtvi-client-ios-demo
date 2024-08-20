@@ -1,14 +1,25 @@
 import SwiftUI
+import RTVIClientIOS
 
 struct SettingsView: View {
+    
     @Binding var showingSettings: Bool
-    @State private var settingsManager = SettingsManager()
-    @State private var selectedMic: String?
-    @State private var microphones: [String] = ["Mic 1", "Mic 2", "Mic 3"]
+    
+    private var rtviClientIOS: VoiceClient?
+    private let microphones: [MediaDeviceInfo]
+    
+    @State private var selectedMic: MediaDeviceId? = nil
     @State private var isMicEnabled: Bool = true
     @State private var backendURL: String = ""
     @State private var dailyApiKey: String = ""
-
+    
+    @MainActor
+    init(showingSettings: Binding<Bool>, rtviClientIOS: VoiceClient?) {
+        self._showingSettings = showingSettings
+        self.rtviClientIOS = rtviClientIOS
+        self.microphones = rtviClientIOS?.getAllMics() ?? []
+    }
+    
     var body: some View {
         NavigationView {
             Form {
@@ -16,14 +27,14 @@ struct SettingsView: View {
                     SecureField("Daily API Key", text: $dailyApiKey)
                 }
                 Section(header: Text("Audio Settings")) {
-                    List(microphones, id: \.self) { mic in
+                    List(microphones, id: \.self.id.id) { mic in
                         Button(action: {
-                            selectMic(mic)
+                            selectMic(mic.id)
                         }) {
                             HStack {
-                                Text(mic)
+                                Text(mic.name)
                                 Spacer()
-                                if mic == selectedMic {
+                                if mic.id == selectedMic {
                                     Image(systemName: "checkmark")
                                 }
                             }
@@ -52,32 +63,35 @@ struct SettingsView: View {
             }
         }
     }
-
-    private func selectMic(_ mic: String) {
+    
+    private func selectMic(_ mic: MediaDeviceId) {
+        // TODO invoke callModel
         selectedMic = mic
     }
-
+    
     private func saveSettings() {
         let newSettings = SettingsPreference(
-            selectedMic: selectedMic,
+            selectedMic: selectedMic?.id,
             isMicEnabled: isMicEnabled,
             backendURL: backendURL,
             dailyApiKey: dailyApiKey
         )
-        settingsManager.settings = newSettings
+        SettingsManager.updateSettings(settings: newSettings)
     }
-
+    
     private func loadSettings() {
-        let savedSettings = settingsManager.settings
-        selectedMic = savedSettings.selectedMic
-        isMicEnabled = savedSettings.isMicEnabled
-        backendURL = savedSettings.backendURL
-        dailyApiKey = savedSettings.dailyApiKey
+        let savedSettings = SettingsManager.getSettings()
+        if let selectedMic = savedSettings.selectedMic {
+            self.selectedMic = MediaDeviceId(id: selectedMic)
+        } else {
+            self.selectedMic = nil
+        }
+        self.isMicEnabled = savedSettings.isMicEnabled
+        self.backendURL = savedSettings.backendURL
+        self.dailyApiKey = savedSettings.dailyApiKey
     }
 }
 
-struct SettingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsView(showingSettings: .constant(true))
-    }
+#Preview {
+    SettingsView(showingSettings: .constant(true), rtviClientIOS: nil)
 }

@@ -1,15 +1,15 @@
 import SwiftUI
 
 struct MeetingView: View {
-
+    
     @State private var showingSettings = false
-
+    
     //for dev only, to test using Preview
     //@EnvironmentObject private var model: MockCallContainerModel
-
+    
     //prod
     @EnvironmentObject private var model: CallContainerModel
-
+    
     var body: some View {
         VStack {
             // Header Toolbar
@@ -29,7 +29,7 @@ struct MeetingView: View {
                     .cornerRadius(12)
             }
             .padding()
-
+            
             // Main Panel
             VStack {
                 VStack {
@@ -48,7 +48,7 @@ struct MeetingView: View {
             }
             .frame(maxHeight: .infinity)
             .padding()
-
+            
             // Bottom Panel
             VStack {
                 HStack {
@@ -65,7 +65,7 @@ struct MeetingView: View {
                     }
                     .border(Color.buttonsBorder, width: 1)
                     .cornerRadius(12)
-
+                    
                     Button(action: {
                         self.showingSettings = true
                     }) {
@@ -78,7 +78,7 @@ struct MeetingView: View {
                         .frame(maxWidth: .infinity)
                         .padding()
                         .sheet(isPresented: $showingSettings) {
-                            SettingsView(showingSettings: $showingSettings)
+                            SettingsView(showingSettings: $showingSettings, rtviClientIOS: self.model.rtviClientIOS)
                         }
                     }
                     .border(Color.buttonsBorder, width: 1)
@@ -86,7 +86,7 @@ struct MeetingView: View {
                 }
                 .foregroundColor(.black)
                 .padding([.top, .horizontal])
-
+                
                 Button(action: {
                     self.model.disconnect()
                 }) {
@@ -108,7 +108,7 @@ struct MeetingView: View {
         .background(Color.backgroundApp)
         .toast(message: model.toastMessage, isShowing: model.showToast)
     }
-
+    
     func timerString(from count: Int) -> String {
         let minutes = count / 60
         let seconds = count % 60
