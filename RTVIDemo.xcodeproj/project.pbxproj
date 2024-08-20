@@ -25,6 +25,8 @@
 		90ABB99A2C73A6A9000D9CC7 /* MockCallContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90ABB9992C73A6A9000D9CC7 /* MockCallContainerModel.swift */; };
 		90ABB99D2C73C2D1000D9CC7 /* CallContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90ABB99C2C73C2D1000D9CC7 /* CallContainerModel.swift */; };
 		90ABB9A32C74E1CE000D9CC7 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90ABB9A22C74E1CE000D9CC7 /* SettingsView.swift */; };
+		90ABB9A62C74EA8A000D9CC7 /* SettingsPreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90ABB9A52C74EA8A000D9CC7 /* SettingsPreference.swift */; };
+		90ABB9A82C74EAB1000D9CC7 /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90ABB9A72C74EAB1000D9CC7 /* SettingsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		90ABB9992C73A6A9000D9CC7 /* MockCallContainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCallContainerModel.swift; sourceTree = "<group>"; };
 		90ABB99C2C73C2D1000D9CC7 /* CallContainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallContainerModel.swift; sourceTree = "<group>"; };
 		90ABB9A22C74E1CE000D9CC7 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		90ABB9A52C74EA8A000D9CC7 /* SettingsPreference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPreference.swift; sourceTree = "<group>"; };
+		90ABB9A72C74EAB1000D9CC7 /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +161,7 @@
 			children = (
 				90ABB99E2C73C3A9000D9CC7 /* components */,
 				90ABB9962C738346000D9CC7 /* extensions */,
+				90ABB9A42C74EA52000D9CC7 /* settings */,
 				90031FA82C616EE700408370 /* PreJoinView.swift */,
 				90ABB98D2C735ED6000D9CC7 /* MeetingView.swift */,
 			);
@@ -186,9 +191,18 @@
 				90ABB98F2C736A8B000D9CC7 /* WaveformView.swift */,
 				90ABB9922C73820D000D9CC7 /* MicrophoneView.swift */,
 				90031FDB2C6D5DD700408370 /* ToastModifier.swift */,
-				90ABB9A22C74E1CE000D9CC7 /* SettingsView.swift */,
 			);
 			path = components;
+			sourceTree = "<group>";
+		};
+		90ABB9A42C74EA52000D9CC7 /* settings */ = {
+			isa = PBXGroup;
+			children = (
+				90ABB9A52C74EA8A000D9CC7 /* SettingsPreference.swift */,
+				90ABB9A72C74EAB1000D9CC7 /* SettingsManager.swift */,
+				90ABB9A22C74E1CE000D9CC7 /* SettingsView.swift */,
+			);
+			path = settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,12 +344,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				90ABB99D2C73C2D1000D9CC7 /* CallContainerModel.swift in Sources */,
+				90ABB9A62C74EA8A000D9CC7 /* SettingsPreference.swift in Sources */,
 				90ABB99A2C73A6A9000D9CC7 /* MockCallContainerModel.swift in Sources */,
 				90031FA92C616EE700408370 /* PreJoinView.swift in Sources */,
 				90ABB9982C738356000D9CC7 /* CustomColors.swift in Sources */,
 				90ABB98E2C735ED6000D9CC7 /* MeetingView.swift in Sources */,
 				90ABB9A32C74E1CE000D9CC7 /* SettingsView.swift in Sources */,
 				90ABB9932C73820D000D9CC7 /* MicrophoneView.swift in Sources */,
+				90ABB9A82C74EAB1000D9CC7 /* SettingsManager.swift in Sources */,
 				90031FDC2C6D5DD700408370 /* ToastModifier.swift in Sources */,
 				90031FA72C616EE700408370 /* RTVIDemoApp.swift in Sources */,
 				90ABB9902C736A8B000D9CC7 /* WaveformView.swift in Sources */,
