@@ -14,7 +14,7 @@ class CallContainerModel: ObservableObject {
     
     @Published var voiceClientStatus: String = TransportState.idle.description
     @Published var isInCall: Bool = false
-    @Published var isConnected: Bool = false
+    @Published var isBotReady: Bool = false
     @Published var timerCount = 0
     
     @Published var isMicEnabled: Bool = true
@@ -145,11 +145,11 @@ extension CallContainerModel:VoiceClientDelegate, LLMHelperDelegate {
         self.handleEvent(eventName: "onTransportStateChanged", eventValue: state)
         self.voiceClientStatus = state.description
         self.isInCall = ( state == .connecting || state == .connected || state == .ready || state == .handshaking )
-        self.isConnected = ( state == .ready )
     }
     
     func onBotReady(botReadyData: BotReadyData) {
         self.handleEvent(eventName: "onBotReady")
+        self.isBotReady = true
         self.startTimer()
     }
     
@@ -159,6 +159,7 @@ extension CallContainerModel:VoiceClientDelegate, LLMHelperDelegate {
     
     func onDisconnected() {
         self.stopTimer()
+        self.isBotReady = false
     }
     
     func onRemoteAudioLevel(level: Float, participant: Participant) {

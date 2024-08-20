@@ -33,7 +33,7 @@ struct MeetingView: View {
             // Main Panel
             VStack {
                 VStack {
-                    WaveformView(audioLevel: model.remoteAudioLevel, isConnected: model.isConnected, voiceClientStatus: model.voiceClientStatus)
+                    WaveformView(audioLevel: model.remoteAudioLevel, isBotReady: model.isBotReady, voiceClientStatus: model.voiceClientStatus)
                 }
                 .frame(maxHeight: .infinity)
                 VStack {
