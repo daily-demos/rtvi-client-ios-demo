@@ -122,10 +122,12 @@ class CallContainerModel: ObservableObject {
         }
     }
     
-    private func startTimer() {
+    private func startTimer(withExpirationTime expirationTime: Int) {
+        let currentTime = Int(Date().timeIntervalSince1970)
+        self.timerCount = expirationTime - currentTime
         self.meetingTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             DispatchQueue.main.async {
-                self.timerCount += 1
+                self.timerCount -= 1
             }
         }
     }
@@ -163,9 +165,11 @@ extension CallContainerModel:VoiceClientDelegate, LLMHelperDelegate {
     }
     
     func onBotReady(botReadyData: BotReadyData) {
-        self.handleEvent(eventName: "onBotReady")
+        self.handleEvent(eventName: "onBotReady.")
         self.isBotReady = true
-        self.startTimer()
+        if let expirationTime = self.rtviClientIOS?.expiry() {
+            self.startTimer(withExpirationTime: expirationTime)
+        }
     }
     
     func onConnected() {

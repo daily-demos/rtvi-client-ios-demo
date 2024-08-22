@@ -19,7 +19,7 @@ struct MeetingView: View {
                     .frame(width: 48, height: 48)
                 Spacer()
                 HStack {
-                    Image(systemName: "clock")
+                    Image(systemName: "stopwatch")
                         .resizable()
                         .frame(width: 24, height: 24)
                     Text(timerString(from: self.model.timerCount))
@@ -113,9 +113,10 @@ struct MeetingView: View {
     }
     
     func timerString(from count: Int) -> String {
-        let minutes = count / 60
+        let hours = count / 3600
+        let minutes = (count % 3600) / 60
         let seconds = count % 60
-        return String(format: "%02d:%02d", minutes, seconds)
+        return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
     }
 }
 
