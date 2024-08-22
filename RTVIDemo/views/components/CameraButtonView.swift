@@ -3,8 +3,8 @@ import RTVIClientIOS
 import RTVIClientIOSDaily
 
 struct CameraButtonView: View {
-    var trackId: MediaTrackId? // Current audio level
-    var isMuted: Bool // Muted state
+    var trackId: MediaTrackId?
+    var isMuted: Bool
 
     var body: some View {
         GeometryReader { geometry in
