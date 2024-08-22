@@ -18,7 +18,7 @@ struct CameraButtonView: View {
                     .frame(width: circleSize)
                 
                 if (!isMuted){
-                    DailyVideoView(voiceClientTrack: trackId, videoScaleMode: .fill)
+                    VoiceClientVideoViewSwiftUI(voiceClientTrack: trackId, videoScaleMode: .fill)
                         .aspectRatio(1, contentMode: .fit)
                         .clipShape(Circle())
                 } else {
