@@ -200,4 +200,8 @@ extension CallContainerModel:VoiceClientDelegate, LLMHelperDelegate {
         self.showError(message: message)
     }
     
+    func onTracksUpdated(tracks: Tracks) {
+        self.handleEvent(eventName: "onTracksUpdated", eventValue: tracks)
+    }
+    
 }
