@@ -20,6 +20,7 @@ struct CameraButtonView: View {
                 if (!isMuted){
                     DailyVideoView(voiceClientTrack: trackId, videoScaleMode: .fill)
                         .aspectRatio(1, contentMode: .fit)
+                        .clipShape(Circle())
                 } else {
                     Circle()
                         .fill(Color.disabledVision)

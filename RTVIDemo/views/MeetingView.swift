@@ -40,7 +40,6 @@ struct MeetingView: View {
                     HStack {
                         MicrophoneView(audioLevel: model.localAudioLevel, isMuted: !self.model.isMicEnabled)
                             .frame(width: 160, height: 160)
-                            .padding()
                             .onTapGesture {
                                 self.model.toggleMicInput()
                             }
