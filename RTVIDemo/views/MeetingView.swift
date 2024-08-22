@@ -37,12 +37,19 @@ struct MeetingView: View {
                 }
                 .frame(maxHeight: .infinity)
                 VStack {
-                    MicrophoneView(audioLevel: model.localAudioLevel, isMuted: !self.model.isMicEnabled)
-                        .frame(width: 120, height: 120)
-                        .padding()
-                        .onTapGesture {
-                            self.model.toggleMicInput()
-                        }
+                    HStack {
+                        MicrophoneView(audioLevel: model.localAudioLevel, isMuted: !self.model.isMicEnabled)
+                            .frame(width: 160, height: 160)
+                            .padding()
+                            .onTapGesture {
+                                self.model.toggleMicInput()
+                            }
+                        CameraButtonView(trackId: self.model.localCamId, isMuted: !self.model.isCamEnabled)
+                            .frame(width: 120, height: 120)
+                            .onTapGesture {
+                                self.model.toggleCamInput()
+                            }
+                    }
                 }
                 .frame(height: 120)
             }
@@ -54,19 +61,19 @@ struct MeetingView: View {
                 HStack {
                     //TODO: leaving it disabled for now, need to implement it
                     /**
-                    Button(action: {
-                    }) {
-                        HStack {
-                            Image(systemName: "chevron.right.square")
-                                .resizable()
-                                .frame(width: 24, height: 24)
-                            Text("Commands")
-                        }
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                    }
-                    .border(Color.buttonsBorder, width: 1)
-                    .cornerRadius(12)
+                     Button(action: {
+                     }) {
+                     HStack {
+                     Image(systemName: "chevron.right.square")
+                     .resizable()
+                     .frame(width: 24, height: 24)
+                     Text("Commands")
+                     }
+                     .frame(maxWidth: .infinity)
+                     .padding()
+                     }
+                     .border(Color.buttonsBorder, width: 1)
+                     .cornerRadius(12)
                      */
                     
                     Button(action: {

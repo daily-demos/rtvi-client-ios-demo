@@ -12,6 +12,8 @@ class CallContainerModel: ObservableObject {
     @Published var timerCount = 0
     
     @Published var isMicEnabled: Bool = false
+    @Published var isCamEnabled: Bool = false
+    @Published var localCamId: MediaTrackId? = nil
     
     @Published var toastMessage: String? = nil
     @Published var showToast: Bool = false
@@ -122,6 +124,17 @@ class CallContainerModel: ObservableObject {
         }
     }
     
+    func toggleCamInput() {
+        self.rtviClientIOS?.enableCam(enable: !self.isCamEnabled) { result in
+            switch result {
+            case .success():
+                self.isCamEnabled = self.rtviClientIOS?.isCamEnabled ?? false
+            case .failure(let error):
+                self.showError(message: error.localizedDescription)
+            }
+        }
+    }
+    
     private func startTimer(withExpirationTime expirationTime: Int) {
         let currentTime = Int(Date().timeIntervalSince1970)
         self.timerCount = expirationTime - currentTime
@@ -174,6 +187,7 @@ extension CallContainerModel:VoiceClientDelegate, LLMHelperDelegate {
     
     func onConnected() {
         self.isMicEnabled = self.rtviClientIOS?.isMicEnabled ?? false
+        self.isCamEnabled = self.rtviClientIOS?.isCamEnabled ?? false
     }
     
     func onDisconnected() {
@@ -206,6 +220,7 @@ extension CallContainerModel:VoiceClientDelegate, LLMHelperDelegate {
     
     func onTracksUpdated(tracks: Tracks) {
         self.handleEvent(eventName: "onTracksUpdated", eventValue: tracks)
+        self.localCamId = tracks.local.video
     }
     
 }
