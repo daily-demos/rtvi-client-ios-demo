@@ -9,6 +9,7 @@ public extension Color {
     static let micVolume = Color(hex: "#86EFAC")
     static let timer = Color(hex: "#E5E7EB")
     static let disabledMic = Color(hex: "#ee6b6e")
+    static let disabledVision = Color(hex: "#BBF7D0")
         
     init(hex: String) {
         let scanner = Scanner(string: hex)

@@ -3,7 +3,6 @@ import SwiftUI
 import RTVIClientIOSDaily
 import RTVIClientIOS
 
-@MainActor
 class CallContainerModel: ObservableObject {
     
     @Published var voiceClientStatus: String = TransportState.idle.description
@@ -12,6 +11,8 @@ class CallContainerModel: ObservableObject {
     @Published var timerCount = 0
     
     @Published var isMicEnabled: Bool = false
+    @Published var isCamEnabled: Bool = false
+    @Published var localCamId: MediaTrackId? = nil
     
     @Published var toastMessage: String? = nil
     @Published var showToast: Bool = false
@@ -35,11 +36,11 @@ class CallContainerModel: ObservableObject {
             ServiceConfig(
                 service: "llm",
                 options: [
-                    Option(name: "model", value: Value.string("meta-llama/Meta-Llama-3.1-8B-Instruct-Turbo")),
+                    Option(name: "model", value: Value.string("meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo")),
                     Option(name: "initial_messages", value: Value.array([
                         Value.object([
                             "role" : Value.string("system"),
-                            "content": Value.string("You are a assistant called Frankie. You can ask me anything. Keep responses brief and legible. Introduce yourself first.")
+                            "content": Value.string("You are a assistant called ExampleBot. You can ask me anything. Keep responses brief and legible. Your responses will converted to audio. Please do not include any special characters in your response other than '!' or '?'. Start by briefly introducing yourself.")
                         ])
                     ])),
                     Option(name: "run_on_config", value: Value.boolean(true)),
@@ -49,6 +50,14 @@ class CallContainerModel: ObservableObject {
                 service: "tts",
                 options: [
                     Option(name: "voice", value: Value.string("79a125e8-cd45-4c13-8a67-188112f4dd22"))
+                ]
+            ),
+            ServiceConfig(
+                service: "vad",
+                options: [
+                    Option(name: "params", value: Value.object([
+                        "stop_secs": Value.number(0.8)
+                    ]))
                 ]
             )
         ]
@@ -69,6 +78,7 @@ class CallContainerModel: ObservableObject {
         )
     }
     
+    @MainActor
     func connect(backendURL: String, dailyApiKey:String) {
         if(dailyApiKey.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty){
             self.showError(message: "Need to fill the Daily API Key. For more info visit: https://bots.daily.co")
@@ -97,6 +107,7 @@ class CallContainerModel: ObservableObject {
         self.saveCredentials(dailyApiKey: dailyApiKey, backendURL: baseUrl)
     }
     
+    @MainActor
     func disconnect() {
         self.rtviClientIOS?.disconnect(completion: nil)
     }
@@ -111,6 +122,7 @@ class CallContainerModel: ObservableObject {
         }
     }
     
+    @MainActor
     func toggleMicInput() {
         self.rtviClientIOS?.enableMic(enable: !self.isMicEnabled) { result in
             switch result {
@@ -122,10 +134,24 @@ class CallContainerModel: ObservableObject {
         }
     }
     
-    private func startTimer() {
+    @MainActor
+    func toggleCamInput() {
+        self.rtviClientIOS?.enableCam(enable: !self.isCamEnabled) { result in
+            switch result {
+            case .success():
+                self.isCamEnabled = self.rtviClientIOS?.isCamEnabled ?? false
+            case .failure(let error):
+                self.showError(message: error.localizedDescription)
+            }
+        }
+    }
+    
+    private func startTimer(withExpirationTime expirationTime: Int) {
+        let currentTime = Int(Date().timeIntervalSince1970)
+        self.timerCount = expirationTime - currentTime
         self.meetingTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             DispatchQueue.main.async {
-                self.timerCount += 1
+                self.timerCount -= 1
             }
         }
     }
@@ -162,14 +188,19 @@ extension CallContainerModel:VoiceClientDelegate, LLMHelperDelegate {
         self.isInCall = ( state == .connecting || state == .connected || state == .ready || state == .handshaking )
     }
     
+    @MainActor
     func onBotReady(botReadyData: BotReadyData) {
-        self.handleEvent(eventName: "onBotReady")
+        self.handleEvent(eventName: "onBotReady.")
         self.isBotReady = true
-        self.startTimer()
+        if let expirationTime = self.rtviClientIOS?.expiry() {
+            self.startTimer(withExpirationTime: expirationTime)
+        }
     }
     
+    @MainActor
     func onConnected() {
         self.isMicEnabled = self.rtviClientIOS?.isMicEnabled ?? false
+        self.isCamEnabled = self.rtviClientIOS?.isCamEnabled ?? false
     }
     
     func onDisconnected() {
@@ -198,6 +229,11 @@ extension CallContainerModel:VoiceClientDelegate, LLMHelperDelegate {
     func onError(message: String) {
         self.handleEvent(eventName: "onError", eventValue: message)
         self.showError(message: message)
+    }
+    
+    func onTracksUpdated(tracks: Tracks) {
+        self.handleEvent(eventName: "onTracksUpdated", eventValue: tracks)
+        self.localCamId = tracks.local.video
     }
     
 }
