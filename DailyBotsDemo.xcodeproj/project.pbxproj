@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		90031FA72C616EE700408370 /* RTVIDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90031FA62C616EE700408370 /* RTVIDemoApp.swift */; };
+		90031FA72C616EE700408370 /* DailyBotsDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90031FA62C616EE700408370 /* DailyBotsDemoApp.swift */; };
 		90031FA92C616EE700408370 /* PreJoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90031FA82C616EE700408370 /* PreJoinView.swift */; };
 		90031FAB2C616EE800408370 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90031FAA2C616EE800408370 /* Assets.xcassets */; };
 		90031FAE2C616EE800408370 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90031FAD2C616EE800408370 /* Preview Assets.xcassets */; };
-		90031FB82C616EE900408370 /* RTVIDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90031FB72C616EE900408370 /* RTVIDemoTests.swift */; };
-		90031FC22C616EE900408370 /* RTVIDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90031FC12C616EE900408370 /* RTVIDemoUITests.swift */; };
-		90031FC42C616EE900408370 /* RTVIDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90031FC32C616EE900408370 /* RTVIDemoUITestsLaunchTests.swift */; };
+		90031FB82C616EE900408370 /* DailyBotsDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90031FB72C616EE900408370 /* DailyBotsDemoTests.swift */; };
+		90031FC22C616EE900408370 /* DailyBotsDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90031FC12C616EE900408370 /* DailyBotsDemoUITests.swift */; };
+		90031FC42C616EE900408370 /* DailyBotsDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90031FC32C616EE900408370 /* DailyBotsDemoUITestsLaunchTests.swift */; };
 		90031FD22C6171F200408370 /* RTVIClientIOS in Frameworks */ = {isa = PBXBuildFile; productRef = 90031FD12C6171F200408370 /* RTVIClientIOS */; };
 		90031FD52C61720200408370 /* RTVIClientIOSDaily in Frameworks */ = {isa = PBXBuildFile; productRef = 90031FD42C61720200408370 /* RTVIClientIOSDaily */; };
 		90031FDC2C6D5DD700408370 /* ToastModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90031FDB2C6D5DD700408370 /* ToastModifier.swift */; };
@@ -39,28 +39,28 @@
 			containerPortal = 90031F9B2C616EE700408370 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 90031FA22C616EE700408370;
-			remoteInfo = RTVIDemo;
+			remoteInfo = DailyBotsDemo;
 		};
 		90031FBE2C616EE900408370 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 90031F9B2C616EE700408370 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 90031FA22C616EE700408370;
-			remoteInfo = RTVIDemo;
+			remoteInfo = DailyBotsDemo;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		90031FA32C616EE700408370 /* RTVIDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RTVIDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		90031FA62C616EE700408370 /* RTVIDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTVIDemoApp.swift; sourceTree = "<group>"; };
+		90031FA32C616EE700408370 /* DailyBotsDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyBotsDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		90031FA62C616EE700408370 /* DailyBotsDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyBotsDemoApp.swift; sourceTree = "<group>"; };
 		90031FA82C616EE700408370 /* PreJoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreJoinView.swift; sourceTree = "<group>"; };
 		90031FAA2C616EE800408370 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		90031FAD2C616EE800408370 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		90031FB32C616EE900408370 /* RTVIDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RTVIDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		90031FB72C616EE900408370 /* RTVIDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTVIDemoTests.swift; sourceTree = "<group>"; };
-		90031FBD2C616EE900408370 /* RTVIDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RTVIDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		90031FC12C616EE900408370 /* RTVIDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTVIDemoUITests.swift; sourceTree = "<group>"; };
-		90031FC32C616EE900408370 /* RTVIDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTVIDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		90031FB32C616EE900408370 /* DailyBotsDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DailyBotsDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		90031FB72C616EE900408370 /* DailyBotsDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyBotsDemoTests.swift; sourceTree = "<group>"; };
+		90031FBD2C616EE900408370 /* DailyBotsDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DailyBotsDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		90031FC12C616EE900408370 /* DailyBotsDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyBotsDemoUITests.swift; sourceTree = "<group>"; };
+		90031FC32C616EE900408370 /* DailyBotsDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyBotsDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		90031FD62C63FD6A00408370 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		90031FDB2C6D5DD700408370 /* ToastModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastModifier.swift; sourceTree = "<group>"; };
 		90ABB98D2C735ED6000D9CC7 /* MeetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingView.swift; sourceTree = "<group>"; };
@@ -109,9 +109,9 @@
 		90031F9A2C616EE700408370 = {
 			isa = PBXGroup;
 			children = (
-				90031FA52C616EE700408370 /* RTVIDemo */,
-				90031FB62C616EE900408370 /* RTVIDemoTests */,
-				90031FC02C616EE900408370 /* RTVIDemoUITests */,
+				90031FA52C616EE700408370 /* DailyBotsDemo */,
+				90031FB62C616EE900408370 /* DailyBotsDemoTests */,
+				90031FC02C616EE900408370 /* DailyBotsDemoUITests */,
 				90031FA42C616EE700408370 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -119,24 +119,24 @@
 		90031FA42C616EE700408370 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				90031FA32C616EE700408370 /* RTVIDemo.app */,
-				90031FB32C616EE900408370 /* RTVIDemoTests.xctest */,
-				90031FBD2C616EE900408370 /* RTVIDemoUITests.xctest */,
+				90031FA32C616EE700408370 /* DailyBotsDemo.app */,
+				90031FB32C616EE900408370 /* DailyBotsDemoTests.xctest */,
+				90031FBD2C616EE900408370 /* DailyBotsDemoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		90031FA52C616EE700408370 /* RTVIDemo */ = {
+		90031FA52C616EE700408370 /* DailyBotsDemo */ = {
 			isa = PBXGroup;
 			children = (
 				90ABB99B2C73C2C5000D9CC7 /* model */,
 				90031FDD2C6D61E000408370 /* views */,
 				90031FD62C63FD6A00408370 /* Info.plist */,
-				90031FA62C616EE700408370 /* RTVIDemoApp.swift */,
+				90031FA62C616EE700408370 /* DailyBotsDemoApp.swift */,
 				90031FAA2C616EE800408370 /* Assets.xcassets */,
 				90031FAC2C616EE800408370 /* Preview Content */,
 			);
-			path = RTVIDemo;
+			path = DailyBotsDemo;
 			sourceTree = "<group>";
 		};
 		90031FAC2C616EE800408370 /* Preview Content */ = {
@@ -147,21 +147,21 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		90031FB62C616EE900408370 /* RTVIDemoTests */ = {
+		90031FB62C616EE900408370 /* DailyBotsDemoTests */ = {
 			isa = PBXGroup;
 			children = (
-				90031FB72C616EE900408370 /* RTVIDemoTests.swift */,
+				90031FB72C616EE900408370 /* DailyBotsDemoTests.swift */,
 			);
-			path = RTVIDemoTests;
+			path = DailyBotsDemoTests;
 			sourceTree = "<group>";
 		};
-		90031FC02C616EE900408370 /* RTVIDemoUITests */ = {
+		90031FC02C616EE900408370 /* DailyBotsDemoUITests */ = {
 			isa = PBXGroup;
 			children = (
-				90031FC12C616EE900408370 /* RTVIDemoUITests.swift */,
-				90031FC32C616EE900408370 /* RTVIDemoUITestsLaunchTests.swift */,
+				90031FC12C616EE900408370 /* DailyBotsDemoUITests.swift */,
+				90031FC32C616EE900408370 /* DailyBotsDemoUITestsLaunchTests.swift */,
 			);
-			path = RTVIDemoUITests;
+			path = DailyBotsDemoUITests;
 			sourceTree = "<group>";
 		};
 		90031FDD2C6D61E000408370 /* views */ = {
@@ -217,9 +217,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		90031FA22C616EE700408370 /* RTVIDemo */ = {
+		90031FA22C616EE700408370 /* DailyBotsDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 90031FC72C616EE900408370 /* Build configuration list for PBXNativeTarget "RTVIDemo" */;
+			buildConfigurationList = 90031FC72C616EE900408370 /* Build configuration list for PBXNativeTarget "DailyBotsDemo" */;
 			buildPhases = (
 				90031F9F2C616EE700408370 /* Sources */,
 				90031FA02C616EE700408370 /* Frameworks */,
@@ -229,7 +229,7 @@
 			);
 			dependencies = (
 			);
-			name = RTVIDemo;
+			name = DailyBotsDemo;
 			packageProductDependencies = (
 				90031FD12C6171F200408370 /* RTVIClientIOS */,
 				90031FD42C61720200408370 /* RTVIClientIOSDaily */,
@@ -238,13 +238,13 @@
 				90ABB9C92C778AF9000D9CC7 /* RTVIClientIOSDaily */,
 				90ABB9D02C7D3769000D9CC7 /* RTVIClientIOSDaily */,
 			);
-			productName = RTVIDemo;
-			productReference = 90031FA32C616EE700408370 /* RTVIDemo.app */;
+			productName = DailyBotsDemo;
+			productReference = 90031FA32C616EE700408370 /* DailyBotsDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		90031FB22C616EE900408370 /* RTVIDemoTests */ = {
+		90031FB22C616EE900408370 /* DailyBotsDemoTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 90031FCA2C616EE900408370 /* Build configuration list for PBXNativeTarget "RTVIDemoTests" */;
+			buildConfigurationList = 90031FCA2C616EE900408370 /* Build configuration list for PBXNativeTarget "DailyBotsDemoTests" */;
 			buildPhases = (
 				90031FAF2C616EE900408370 /* Sources */,
 				90031FB02C616EE900408370 /* Frameworks */,
@@ -255,14 +255,14 @@
 			dependencies = (
 				90031FB52C616EE900408370 /* PBXTargetDependency */,
 			);
-			name = RTVIDemoTests;
-			productName = RTVIDemoTests;
-			productReference = 90031FB32C616EE900408370 /* RTVIDemoTests.xctest */;
+			name = DailyBotsDemoTests;
+			productName = DailyBotsDemoTests;
+			productReference = 90031FB32C616EE900408370 /* DailyBotsDemoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		90031FBC2C616EE900408370 /* RTVIDemoUITests */ = {
+		90031FBC2C616EE900408370 /* DailyBotsDemoUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 90031FCD2C616EE900408370 /* Build configuration list for PBXNativeTarget "RTVIDemoUITests" */;
+			buildConfigurationList = 90031FCD2C616EE900408370 /* Build configuration list for PBXNativeTarget "DailyBotsDemoUITests" */;
 			buildPhases = (
 				90031FB92C616EE900408370 /* Sources */,
 				90031FBA2C616EE900408370 /* Frameworks */,
@@ -273,9 +273,9 @@
 			dependencies = (
 				90031FBF2C616EE900408370 /* PBXTargetDependency */,
 			);
-			name = RTVIDemoUITests;
-			productName = RTVIDemoUITests;
-			productReference = 90031FBD2C616EE900408370 /* RTVIDemoUITests.xctest */;
+			name = DailyBotsDemoUITests;
+			productName = DailyBotsDemoUITests;
+			productReference = 90031FBD2C616EE900408370 /* DailyBotsDemoUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -301,7 +301,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 90031F9E2C616EE700408370 /* Build configuration list for PBXProject "RTVIDemo" */;
+			buildConfigurationList = 90031F9E2C616EE700408370 /* Build configuration list for PBXProject "DailyBotsDemo" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -317,9 +317,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				90031FA22C616EE700408370 /* RTVIDemo */,
-				90031FB22C616EE900408370 /* RTVIDemoTests */,
-				90031FBC2C616EE900408370 /* RTVIDemoUITests */,
+				90031FA22C616EE700408370 /* DailyBotsDemo */,
+				90031FB22C616EE900408370 /* DailyBotsDemoTests */,
+				90031FBC2C616EE900408370 /* DailyBotsDemoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -366,7 +366,7 @@
 				90ABB9932C73820D000D9CC7 /* MicrophoneView.swift in Sources */,
 				90ABB9A82C74EAB1000D9CC7 /* SettingsManager.swift in Sources */,
 				90031FDC2C6D5DD700408370 /* ToastModifier.swift in Sources */,
-				90031FA72C616EE700408370 /* RTVIDemoApp.swift in Sources */,
+				90031FA72C616EE700408370 /* DailyBotsDemoApp.swift in Sources */,
 				90ABB9902C736A8B000D9CC7 /* WaveformView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -375,7 +375,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90031FB82C616EE900408370 /* RTVIDemoTests.swift in Sources */,
+				90031FB82C616EE900408370 /* DailyBotsDemoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,8 +383,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90031FC42C616EE900408370 /* RTVIDemoUITestsLaunchTests.swift in Sources */,
-				90031FC22C616EE900408370 /* RTVIDemoUITests.swift in Sources */,
+				90031FC42C616EE900408370 /* DailyBotsDemoUITestsLaunchTests.swift in Sources */,
+				90031FC22C616EE900408370 /* DailyBotsDemoUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,12 +393,12 @@
 /* Begin PBXTargetDependency section */
 		90031FB52C616EE900408370 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 90031FA22C616EE700408370 /* RTVIDemo */;
+			target = 90031FA22C616EE700408370 /* DailyBotsDemo */;
 			targetProxy = 90031FB42C616EE900408370 /* PBXContainerItemProxy */;
 		};
 		90031FBF2C616EE900408370 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 90031FA22C616EE700408370 /* RTVIDemo */;
+			target = 90031FA22C616EE700408370 /* DailyBotsDemo */;
 			targetProxy = 90031FBE2C616EE900408370 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -530,11 +530,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"RTVIDemo/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"DailyBotsDemo/Preview Content\"";
 				DEVELOPMENT_TEAM = EEBGKV9N3N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RTVIDemo/Info.plist;
+				INFOPLIST_FILE = DailyBotsDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -545,7 +545,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = co.daily.RTVIDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = co.daily.DailyBotsDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -560,11 +560,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"RTVIDemo/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"DailyBotsDemo/Preview Content\"";
 				DEVELOPMENT_TEAM = EEBGKV9N3N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RTVIDemo/Info.plist;
+				INFOPLIST_FILE = DailyBotsDemo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -575,7 +575,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = co.daily.RTVIDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = co.daily.DailyBotsDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -594,12 +594,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = co.daily.RTVIDemoTests;
+				PRODUCT_BUNDLE_IDENTIFIER = co.daily.DailyBotsDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RTVIDemo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RTVIDemo";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DailyBotsDemo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DailyBotsDemo";
 			};
 			name = Debug;
 		};
@@ -614,12 +614,12 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = co.daily.RTVIDemoTests;
+				PRODUCT_BUNDLE_IDENTIFIER = co.daily.DailyBotsDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RTVIDemo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RTVIDemo";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DailyBotsDemo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/DailyBotsDemo";
 			};
 			name = Release;
 		};
@@ -632,12 +632,12 @@
 				DEVELOPMENT_TEAM = EEBGKV9N3N;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = co.daily.RTVIDemoUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = co.daily.DailyBotsDemoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = RTVIDemo;
+				TEST_TARGET_NAME = DailyBotsDemo;
 			};
 			name = Debug;
 		};
@@ -650,19 +650,19 @@
 				DEVELOPMENT_TEAM = EEBGKV9N3N;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = co.daily.RTVIDemoUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = co.daily.DailyBotsDemoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = RTVIDemo;
+				TEST_TARGET_NAME = DailyBotsDemo;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		90031F9E2C616EE700408370 /* Build configuration list for PBXProject "RTVIDemo" */ = {
+		90031F9E2C616EE700408370 /* Build configuration list for PBXProject "DailyBotsDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				90031FC52C616EE900408370 /* Debug */,
@@ -671,7 +671,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		90031FC72C616EE900408370 /* Build configuration list for PBXNativeTarget "RTVIDemo" */ = {
+		90031FC72C616EE900408370 /* Build configuration list for PBXNativeTarget "DailyBotsDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				90031FC82C616EE900408370 /* Debug */,
@@ -680,7 +680,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		90031FCA2C616EE900408370 /* Build configuration list for PBXNativeTarget "RTVIDemoTests" */ = {
+		90031FCA2C616EE900408370 /* Build configuration list for PBXNativeTarget "DailyBotsDemoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				90031FCB2C616EE900408370 /* Debug */,
@@ -689,7 +689,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		90031FCD2C616EE900408370 /* Build configuration list for PBXNativeTarget "RTVIDemoUITests" */ = {
+		90031FCD2C616EE900408370 /* Build configuration list for PBXNativeTarget "DailyBotsDemoUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				90031FCE2C616EE900408370 /* Debug */,

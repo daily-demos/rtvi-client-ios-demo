@@ -10,7 +10,7 @@ This demo is meant to showcase a basic voice to voice app that uses [Daily's bot
 ## Running locally
 
 1. Clone this repository locally.
-2. Open the RTVIDemo.xcodeproj in Xcode.
+2. Open the DailyBotsDemo.xcodeproj in Xcode.
 3. Tell Xcode to update its Package Dependencies by clicking File -> Packages -> Update to Latest Package Versions.
 4. Build the project.
 5. Run the project on your device.

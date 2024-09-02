@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct RTVIDemoApp: App {
+struct DailyBotsDemoApp: App {
 
     @StateObject var callContainerModel = CallContainerModel()
 

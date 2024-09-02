@@ -1,13 +1,6 @@
-//
-//  RTVIDemoUITestsLaunchTests.swift
-//  RTVIDemoUITests
-//
-//  Created by Filipi Fuchter on 05/08/24.
-//
-
 import XCTest
 
-final class RTVIDemoUITestsLaunchTests: XCTestCase {
+final class DailyBotsDemoUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

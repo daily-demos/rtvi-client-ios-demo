@@ -1,14 +1,7 @@
-//
-//  RTVIDemoTests.swift
-//  RTVIDemoTests
-//
-//  Created by Filipi Fuchter on 05/08/24.
-//
-
 import XCTest
-@testable import RTVIDemo
+@testable import DailyBotsDemo
 
-final class RTVIDemoTests: XCTestCase {
+final class DailyBotsDemoTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
