@@ -36,11 +36,15 @@ class CallContainerModel: ObservableObject {
             ServiceConfig(
                 service: "llm",
                 options: [
-                    Option(name: "model", value: Value.string("meta-llama/Meta-Llama-3.1-70B-Instruct-Turbo")),
+                    Option(name: "model", value: Value.string("claude-3-5-sonnet-20240620")),
                     Option(name: "initial_messages", value: Value.array([
                         Value.object([
                             "role" : Value.string("system"),
-                            "content": Value.string("You are a assistant called ExampleBot. You can ask me anything. Keep responses brief and legible. Your responses will converted to audio. Please do not include any special characters in your response other than '!' or '?'. Start by briefly introducing yourself.")
+                            "content": Value.string("You are a assistant called ExampleBot. You can ask me anything. Keep all responses brief. Use short sentences. Use only plain sentences and paragraphis with simple punctuation. You can answer questions about the user's video stream. The video stream is changing constantly, so you will usually need to use the tool to update your understanding whenever the user asks a question about the video. Be brief and to the point when you tell the user you will check the video stream. Say only a few words about what you need to do to respond to the user.")
+                        ]),
+                        Value.object([
+                            "role" : Value.string("user"),
+                            "content": Value.string("Say 'hello' to start the conversation. Tell the user you can answer questions about what you see on their camera.")
                         ])
                     ])),
                     Option(name: "run_on_config", value: Value.boolean(true)),
@@ -64,14 +68,14 @@ class CallContainerModel: ObservableObject {
         
         let customHeaders = [["Authorization": "Bearer \(dailyApiKey)"]]
         let customBodyParams = Value.object([
-            "bot_profile": Value.string("voice_2024_08"),
+            "bot_profile": Value.string("vision_2024_08"),
             "max_duration": Value.number(680)
         ])
         
         return VoiceClientOptions.init(
             enableMic: enableMic,
-            enableCam: false,
-            services: ["llm": "together", "tts": "cartesia"],
+            enableCam: true,
+            services: ["llm": "anthropic", "tts": "cartesia"],
             config: clientConfigOptions,
             customHeaders: customHeaders,
             customBodyParams: customBodyParams
