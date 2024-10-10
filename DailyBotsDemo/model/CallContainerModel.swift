@@ -5,7 +5,7 @@ import RTVIClientIOS
 
 class CallContainerModel: ObservableObject {
     
-    @Published var voiceClientStatus: String = TransportState.idle.description
+    @Published var voiceClientStatus: String = TransportState.disconnected.description
     @Published var isInCall: Bool = false
     @Published var isBotReady: Bool = false
     @Published var timerCount = 0
@@ -24,14 +24,14 @@ class CallContainerModel: ObservableObject {
     
     private var meetingTimer: Timer?
     
-    var rtviClientIOS: VoiceClient?
+    var rtviClientIOS: RTVIClient?
     
     init() {
         // Changing the log level
         RTVIClientIOS.setLogLevel(.warn)
     }
     
-    private func createOptions(dailyApiKey:String, enableMic:Bool) -> VoiceClientOptions {
+    private func createOptions(baseUrl: String, dailyApiKey:String, enableMic:Bool) -> RTVIClientOptions {
         let clientConfigOptions = [
             ServiceConfig(
                 service: "llm",
@@ -62,19 +62,23 @@ class CallContainerModel: ObservableObject {
             )
         ]
         
-        let customHeaders = [["Authorization": "Bearer \(dailyApiKey)"]]
-        let customBodyParams = Value.object([
+        let headers = [["Authorization": "Bearer \(dailyApiKey)"]]
+        let requestData = Value.object([
             "bot_profile": Value.string("voice_2024_08"),
             "max_duration": Value.number(680)
         ])
         
-        return VoiceClientOptions.init(
+        return RTVIClientOptions.init(
             enableMic: enableMic,
-            enableCam: false,
-            services: ["llm": "together", "tts": "cartesia"],
-            config: clientConfigOptions,
-            customHeaders: customHeaders,
-            customBodyParams: customBodyParams
+            enableCam: false, 
+            params: RTVIClientParams(
+                baseUrl: baseUrl,
+                headers: headers,
+                endpoints: RTVIURLEndpoints(connect: "/start"),
+                requestData: requestData,
+                config: clientConfigOptions
+            ),
+            services: ["llm": "together", "tts": "cartesia"]
         )
     }
     
@@ -92,7 +96,7 @@ class CallContainerModel: ObservableObject {
         }
         
         let currentSettings = SettingsManager.getSettings()
-        self.rtviClientIOS = DailyVoiceClient.init(baseUrl: baseUrl, options: createOptions(dailyApiKey: dailyApiKey, enableMic: currentSettings.enableMic))
+        self.rtviClientIOS = DailyVoiceClient.init(options: self.createOptions(baseUrl: baseUrl, dailyApiKey: dailyApiKey, enableMic: currentSettings.enableMic))
         self.rtviClientIOS?.delegate = self
         self.rtviClientIOS?.start() { result in
             if case .failure(let error) = result {
@@ -172,7 +176,7 @@ class CallContainerModel: ObservableObject {
     
 }
 
-extension CallContainerModel:VoiceClientDelegate, LLMHelperDelegate {
+extension CallContainerModel:RTVIClientDelegate, LLMHelperDelegate {
     
     private func handleEvent(eventName: String, eventValue: Any? = nil) {
         if let value = eventValue {
@@ -185,7 +189,7 @@ extension CallContainerModel:VoiceClientDelegate, LLMHelperDelegate {
     func onTransportStateChanged(state: TransportState) {
         self.handleEvent(eventName: "onTransportStateChanged", eventValue: state)
         self.voiceClientStatus = state.description
-        self.isInCall = ( state == .connecting || state == .connected || state == .ready || state == .handshaking )
+        self.isInCall = ( state == .connecting || state == .connected || state == .ready || state == .authenticating )
     }
     
     @MainActor

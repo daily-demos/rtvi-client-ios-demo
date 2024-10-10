@@ -9,7 +9,7 @@ class SettingsManager {
             return settings
         } else {
             // default values in case we don't have any settings
-            return SettingsPreference(enableMic: true, backendURL: "https://api.daily.co/v1/bots/start", dailyApiKey: "")
+            return SettingsPreference(enableMic: true, backendURL: "https://api.daily.co/v1/bots", dailyApiKey: "")
         }
     }
     

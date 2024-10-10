@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/daily-co/daily-client-ios.git",
       "state" : {
-        "revision" : "e42038400233ada3c361d7a96c4e602aaedee369",
-        "version" : "0.23.0"
+        "revision" : "d0f4f54cadbfd5b69c82b8a56f14ad1c7e91e248",
+        "version" : "0.24.0"
       }
     },
     {
@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/rtvi-ai/rtvi-client-ios.git",
       "state" : {
-        "revision" : "2df4a5cc2c8ff17ff5a404adf156503a38a74aa5",
-        "version" : "0.1.6"
+        "revision" : "760caa8a2609fe4600d4b0ad7da03359407cf7a8",
+        "version" : "0.2.0"
       }
     },
     {
@@ -24,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/rtvi-ai/rtvi-client-ios-daily",
       "state" : {
-        "revision" : "69506fb84847bffe1e128e3baf37341221ced01b",
-        "version" : "0.1.6"
+        "revision" : "c5bc77ef1670493420c4db14142ad6b4f7224499",
+        "version" : "0.2.0"
       }
     }
   ],
