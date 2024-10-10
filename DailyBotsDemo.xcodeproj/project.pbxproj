@@ -17,6 +17,8 @@
 		90031FD22C6171F200408370 /* RTVIClientIOS in Frameworks */ = {isa = PBXBuildFile; productRef = 90031FD12C6171F200408370 /* RTVIClientIOS */; };
 		90031FD52C61720200408370 /* RTVIClientIOSDaily in Frameworks */ = {isa = PBXBuildFile; productRef = 90031FD42C61720200408370 /* RTVIClientIOSDaily */; };
 		90031FDC2C6D5DD700408370 /* ToastModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90031FDB2C6D5DD700408370 /* ToastModifier.swift */; };
+		90AB8E4D2CB58CF100AE37B3 /* RTVIClientIOSDaily in Frameworks */ = {isa = PBXBuildFile; productRef = 90AB8E4C2CB58CF100AE37B3 /* RTVIClientIOSDaily */; };
+		90AB8E5A2CB8029B00AE37B3 /* RTVIClientIOSDaily in Frameworks */ = {isa = PBXBuildFile; productRef = 90AB8E592CB8029B00AE37B3 /* RTVIClientIOSDaily */; };
 		90ABB98E2C735ED6000D9CC7 /* MeetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90ABB98D2C735ED6000D9CC7 /* MeetingView.swift */; };
 		90ABB9902C736A8B000D9CC7 /* WaveformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90ABB98F2C736A8B000D9CC7 /* WaveformView.swift */; };
 		90ABB9932C73820D000D9CC7 /* MicrophoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90ABB9922C73820D000D9CC7 /* MicrophoneView.swift */; };
@@ -30,7 +32,6 @@
 		90ABB9B12C753F03000D9CC7 /* RTVIClientIOSDaily in Frameworks */ = {isa = PBXBuildFile; productRef = 90ABB9B02C753F03000D9CC7 /* RTVIClientIOSDaily */; };
 		90ABB9CA2C778AF9000D9CC7 /* RTVIClientIOSDaily in Frameworks */ = {isa = PBXBuildFile; productRef = 90ABB9C92C778AF9000D9CC7 /* RTVIClientIOSDaily */; };
 		90ABB9CC2C77BB44000D9CC7 /* CameraButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90ABB9CB2C77BB44000D9CC7 /* CameraButtonView.swift */; };
-		90ABB9D12C7D3769000D9CC7 /* RTVIClientIOSDaily in Frameworks */ = {isa = PBXBuildFile; productRef = 90ABB9D02C7D3769000D9CC7 /* RTVIClientIOSDaily */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,12 +81,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90ABB9D12C7D3769000D9CC7 /* RTVIClientIOSDaily in Frameworks */,
+				90AB8E4D2CB58CF100AE37B3 /* RTVIClientIOSDaily in Frameworks */,
 				90ABB9B12C753F03000D9CC7 /* RTVIClientIOSDaily in Frameworks */,
 				90ABB9AB2C753A58000D9CC7 /* RTVIClientIOSDaily in Frameworks */,
 				90ABB9CA2C778AF9000D9CC7 /* RTVIClientIOSDaily in Frameworks */,
 				90031FD52C61720200408370 /* RTVIClientIOSDaily in Frameworks */,
 				90031FD22C6171F200408370 /* RTVIClientIOS in Frameworks */,
+				90AB8E5A2CB8029B00AE37B3 /* RTVIClientIOSDaily in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,7 +238,8 @@
 				90ABB9AA2C753A58000D9CC7 /* RTVIClientIOSDaily */,
 				90ABB9B02C753F03000D9CC7 /* RTVIClientIOSDaily */,
 				90ABB9C92C778AF9000D9CC7 /* RTVIClientIOSDaily */,
-				90ABB9D02C7D3769000D9CC7 /* RTVIClientIOSDaily */,
+				90AB8E4C2CB58CF100AE37B3 /* RTVIClientIOSDaily */,
+				90AB8E592CB8029B00AE37B3 /* RTVIClientIOSDaily */,
 			);
 			productName = DailyBotsDemo;
 			productReference = 90031FA32C616EE700408370 /* DailyBotsDemo.app */;
@@ -311,7 +314,7 @@
 			);
 			mainGroup = 90031F9A2C616EE700408370;
 			packageReferences = (
-				90ABB9CF2C7D3769000D9CC7 /* XCRemoteSwiftPackageReference "rtvi-client-ios-daily" */,
+				90AB8E582CB8029B00AE37B3 /* XCRemoteSwiftPackageReference "rtvi-client-ios-daily" */,
 			);
 			productRefGroup = 90031FA42C616EE700408370 /* Products */;
 			projectDirPath = "";
@@ -701,12 +704,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		90ABB9CF2C7D3769000D9CC7 /* XCRemoteSwiftPackageReference "rtvi-client-ios-daily" */ = {
+		90AB8E582CB8029B00AE37B3 /* XCRemoteSwiftPackageReference "rtvi-client-ios-daily" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/rtvi-ai/rtvi-client-ios-daily";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.6;
+				minimumVersion = 0.2.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -720,6 +723,15 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = RTVIClientIOSDaily;
 		};
+		90AB8E4C2CB58CF100AE37B3 /* RTVIClientIOSDaily */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RTVIClientIOSDaily;
+		};
+		90AB8E592CB8029B00AE37B3 /* RTVIClientIOSDaily */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 90AB8E582CB8029B00AE37B3 /* XCRemoteSwiftPackageReference "rtvi-client-ios-daily" */;
+			productName = RTVIClientIOSDaily;
+		};
 		90ABB9AA2C753A58000D9CC7 /* RTVIClientIOSDaily */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = RTVIClientIOSDaily;
@@ -730,11 +742,6 @@
 		};
 		90ABB9C92C778AF9000D9CC7 /* RTVIClientIOSDaily */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = RTVIClientIOSDaily;
-		};
-		90ABB9D02C7D3769000D9CC7 /* RTVIClientIOSDaily */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 90ABB9CF2C7D3769000D9CC7 /* XCRemoteSwiftPackageReference "rtvi-client-ios-daily" */;
 			productName = RTVIClientIOSDaily;
 		};
 /* End XCSwiftPackageProductDependency section */
