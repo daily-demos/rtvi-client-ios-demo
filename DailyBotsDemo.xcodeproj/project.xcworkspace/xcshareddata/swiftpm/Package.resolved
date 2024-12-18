@@ -1,31 +1,31 @@
 {
-  "originHash" : "8cb8387d99e5e40639166cd88245832a8c50b1d4b9cfc3ce8cb3f78ab7497c82",
+  "originHash" : "cc17f08b06def9570d775e9c6f7a8dc10d1588b98127e977c47d052abac659b7",
   "pins" : [
     {
       "identity" : "daily-client-ios",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/daily-co/daily-client-ios.git",
       "state" : {
-        "revision" : "d0f4f54cadbfd5b69c82b8a56f14ad1c7e91e248",
-        "version" : "0.24.0"
+        "revision" : "15804ce495780da3ec2d05ab99736315f7bfbd24",
+        "version" : "0.28.0"
       }
     },
     {
-      "identity" : "rtvi-client-ios",
+      "identity" : "pipecat-client-ios",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/rtvi-ai/rtvi-client-ios.git",
+      "location" : "https://github.com/pipecat-ai/pipecat-client-ios.git",
       "state" : {
-        "revision" : "760caa8a2609fe4600d4b0ad7da03359407cf7a8",
-        "version" : "0.2.0"
+        "revision" : "fd8418559b6f885af7662b78fabdb0e2f08fbb1a",
+        "version" : "0.3.0"
       }
     },
     {
-      "identity" : "rtvi-client-ios-daily",
+      "identity" : "pipecat-client-ios-daily",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/rtvi-ai/rtvi-client-ios-daily",
+      "location" : "https://github.com/pipecat-ai/pipecat-client-ios-daily/",
       "state" : {
-        "revision" : "c5bc77ef1670493420c4db14142ad6b4f7224499",
-        "version" : "0.2.0"
+        "revision" : "03e1d1da973fb1aab65ac0c8267664f334a74c50",
+        "version" : "0.3.0"
       }
     }
   ],
