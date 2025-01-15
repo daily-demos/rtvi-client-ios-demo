@@ -1,7 +1,7 @@
 import SwiftUI
 
-import RTVIClientIOSDaily
-import RTVIClientIOS
+import PipecatClientIOSDaily
+import PipecatClientIOS
 
 class CallContainerModel: ObservableObject {
     
@@ -28,7 +28,7 @@ class CallContainerModel: ObservableObject {
     
     init() {
         // Changing the log level
-        RTVIClientIOS.setLogLevel(.warn)
+        PipecatClientIOS.setLogLevel(.warn)
     }
     
     private func createOptions(baseUrl: String, dailyApiKey:String, enableMic:Bool) -> RTVIClientOptions {
