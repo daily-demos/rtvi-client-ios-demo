@@ -1,6 +1,6 @@
 import SwiftUI
-import RTVIClientIOS
-import RTVIClientIOSDaily
+import PipecatClientIOS
+import PipecatClientIOSDaily
 
 struct CameraButtonView: View {
     var trackId: MediaTrackId?
